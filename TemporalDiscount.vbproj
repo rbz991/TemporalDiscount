@@ -81,6 +81,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
+    <Compile Include="Snake.Designer.vb">
+      <DependentUpon>Snake.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Snake.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Task.Designer.vb">
       <DependentUpon>Task.vb</DependentUpon>
     </Compile>

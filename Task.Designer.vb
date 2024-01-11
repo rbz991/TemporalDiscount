@@ -34,16 +34,18 @@ Partial Class Task
         Me.lblEspera = New System.Windows.Forms.Label()
         Me.btnButton = New System.Windows.Forms.Button()
         Me.tmrDebug = New System.Windows.Forms.Timer(Me.components)
+        Me.tmrPhase1Intervals = New System.Windows.Forms.Timer(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblPrefieres
         '
         Me.lblPrefieres.AutoSize = True
         Me.lblPrefieres.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrefieres.Location = New System.Drawing.Point(511, 9)
-        Me.lblPrefieres.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblPrefieres.Location = New System.Drawing.Point(1022, 17)
+        Me.lblPrefieres.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPrefieres.Name = "lblPrefieres"
-        Me.lblPrefieres.Size = New System.Drawing.Size(651, 39)
+        Me.lblPrefieres.Size = New System.Drawing.Size(1033, 63)
         Me.lblPrefieres.TabIndex = 0
         Me.lblPrefieres.Text = "Da click para iniciar la toma de decisiones"
         '
@@ -52,10 +54,10 @@ Partial Class Task
         Me.btnIzquierda.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnIzquierda.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnIzquierda.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIzquierda.Location = New System.Drawing.Point(17, 168)
-        Me.btnIzquierda.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnIzquierda.Location = New System.Drawing.Point(13, 315)
+        Me.btnIzquierda.Margin = New System.Windows.Forms.Padding(4)
         Me.btnIzquierda.Name = "btnIzquierda"
-        Me.btnIzquierda.Size = New System.Drawing.Size(300, 200)
+        Me.btnIzquierda.Size = New System.Drawing.Size(650, 400)
         Me.btnIzquierda.TabIndex = 1
         Me.btnIzquierda.Text = "."
         Me.btnIzquierda.UseVisualStyleBackColor = False
@@ -66,10 +68,10 @@ Partial Class Task
         Me.btnDerecha.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.btnDerecha.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnDerecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDerecha.Location = New System.Drawing.Point(895, 168)
-        Me.btnDerecha.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnDerecha.Location = New System.Drawing.Point(1749, 315)
+        Me.btnDerecha.Margin = New System.Windows.Forms.Padding(4)
         Me.btnDerecha.Name = "btnDerecha"
-        Me.btnDerecha.Size = New System.Drawing.Size(300, 200)
+        Me.btnDerecha.Size = New System.Drawing.Size(650, 400)
         Me.btnDerecha.TabIndex = 2
         Me.btnDerecha.Text = "."
         Me.btnDerecha.UseVisualStyleBackColor = False
@@ -83,10 +85,10 @@ Partial Class Task
         Me.btnRef.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnRef.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.btnRef.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRef.Location = New System.Drawing.Point(423, 237)
-        Me.btnRef.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnRef.Location = New System.Drawing.Point(846, 456)
+        Me.btnRef.Margin = New System.Windows.Forms.Padding(4)
         Me.btnRef.Name = "btnRef"
-        Me.btnRef.Size = New System.Drawing.Size(300, 200)
+        Me.btnRef.Size = New System.Drawing.Size(600, 385)
         Me.btnRef.TabIndex = 3
         Me.btnRef.Text = "Comenzar"
         Me.btnRef.UseVisualStyleBackColor = False
@@ -98,9 +100,10 @@ Partial Class Task
         '
         Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(12, 499)
+        Me.ProgressBar1.Location = New System.Drawing.Point(24, 960)
+        Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(6)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(1182, 23)
+        Me.ProgressBar1.Size = New System.Drawing.Size(2364, 44)
         Me.ProgressBar1.TabIndex = 4
         Me.ProgressBar1.Visible = False
         '
@@ -113,10 +116,10 @@ Partial Class Task
         Me.lblEspera.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblEspera.AutoSize = True
         Me.lblEspera.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEspera.Location = New System.Drawing.Point(511, 77)
-        Me.lblEspera.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblEspera.Location = New System.Drawing.Point(1022, 148)
+        Me.lblEspera.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEspera.Name = "lblEspera"
-        Me.lblEspera.Size = New System.Drawing.Size(267, 39)
+        Me.lblEspera.Size = New System.Drawing.Size(424, 63)
         Me.lblEspera.TabIndex = 5
         Me.lblEspera.Text = "Por favor espera"
         Me.lblEspera.Visible = False
@@ -124,10 +127,10 @@ Partial Class Task
         'btnButton
         '
         Me.btnButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnButton.Location = New System.Drawing.Point(232, 372)
-        Me.btnButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnButton.Location = New System.Drawing.Point(464, 715)
+        Me.btnButton.Margin = New System.Windows.Forms.Padding(4)
         Me.btnButton.Name = "btnButton"
-        Me.btnButton.Size = New System.Drawing.Size(100, 97)
+        Me.btnButton.Size = New System.Drawing.Size(200, 187)
         Me.btnButton.TabIndex = 15
         Me.btnButton.UseVisualStyleBackColor = True
         Me.btnButton.Visible = False
@@ -137,11 +140,25 @@ Partial Class Task
         Me.tmrDebug.Enabled = True
         Me.tmrDebug.Interval = 5
         '
+        'tmrPhase1Intervals
+        '
+        Me.tmrPhase1Intervals.Interval = 2000
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(1651, 752)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(77, 25)
+        Me.Label1.TabIndex = 16
+        Me.Label1.Text = "Label1"
+        '
         'Task
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1206, 534)
+        Me.ClientSize = New System.Drawing.Size(2412, 1027)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnButton)
         Me.Controls.Add(Me.lblEspera)
         Me.Controls.Add(Me.ProgressBar1)
@@ -149,7 +166,7 @@ Partial Class Task
         Me.Controls.Add(Me.btnDerecha)
         Me.Controls.Add(Me.btnIzquierda)
         Me.Controls.Add(Me.lblPrefieres)
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Task"
         Me.Text = "Form2"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -169,4 +186,6 @@ Partial Class Task
     Friend WithEvents lblEspera As Label
     Friend WithEvents btnButton As Button
     Friend WithEvents tmrDebug As Timer
+    Friend WithEvents tmrPhase1Intervals As Timer
+    Friend WithEvents Label1 As Label
 End Class
