@@ -8,7 +8,10 @@ Public Class Task
         Arduino.Open()
         Do
             vTimeNow = Environment.TickCount - vTimeStart
-            Label1.Text = Choices(0, 0) & Choices(0, 1) & Choices(0, 2)
+            Label1.Text = Choices(0, 0) & Choices(0, 1) & Choices(0, 2) & vbCrLf &
+                Choices(1, 0) & Choices(1, 1) & Choices(1, 2) & vbCrLf &
+                Choices(2, 0) & Choices(2, 1) & Choices(2, 2) & vbCrLf &
+                Choices(3, 0) & Choices(3, 1) & Choices(3, 2)
             My.Application.DoEvents()
         Loop
         Return 0
@@ -53,7 +56,7 @@ Public Class Task
                 Delay()
             End If
         ElseIf Trial = 2 Then
-            If sender.Text = "4 ml ahora" Or sender.Text.Contains("12 ml en ") Then
+            If sender.Text = "4 ml ahora" Or sender.Text = "12 ml ahora" Then
                 If ActiveDelay = 5000 Then Choices(0, 1) = False
                 If ActiveDelay = 15000 Then Choices(1, 1) = False
                 If ActiveDelay = 30000 Then Choices(2, 1) = False
@@ -74,7 +77,7 @@ Public Class Task
                 Delay()
             End If
         ElseIf Trial = 3 Then
-            If sender.Text = "2 ml ahora" Or sender.Text.Contains("6 ml en ") Or sender.Text = "10 ml ahora" Or sender.Text.Contains("14 ml en ") Then
+            If sender.Text = "2 ml ahora" Or sender.Text = "6 ml ahora" Or sender.Text = "10 ml ahora" Or sender.Text = "14 ml ahora" Then
                 If ActiveDelay = 5000 Then Choices(0, 2) = False
                 If ActiveDelay = 15000 Then Choices(1, 2) = False
                 If ActiveDelay = 30000 Then Choices(2, 2) = False
@@ -96,6 +99,7 @@ Public Class Task
             End If
         End If
     End Sub
+
     Private Sub tmrDelay_Tick(sender As Object, e As EventArgs) Handles tmrDelay.Tick
         tmrDelay.Enabled = False
         btnButton.Visible = False
@@ -104,7 +108,7 @@ Public Class Task
         ElseIf vPhase = 1 Then
             BtnRef_()
         End If
-        btnRef.Visible = True
+
         ProgressBar1.Value = ProgressBar1.Maximum
     End Sub
     Private Sub BtnRef_()
@@ -115,12 +119,16 @@ Public Class Task
             ReloadTask()
         Else
             Reinforce(Ref)
-            If blnWaited = False Then
-                tmrRestart.Enabled = True
-            ElseIf blnWaited = True Then
-                blnWaited = False
-                tmrRestart.Interval = (85000 - tmrDelay.Interval)
-                tmrRestart.Enabled = True
+            If vPhase <> 1 Then
+                If blnWaited = False Then
+                    tmrRestart.Enabled = True
+                ElseIf blnWaited = True Then
+                    blnWaited = False
+                    tmrRestart.Interval = (85000 - tmrDelay.Interval)
+                    tmrRestart.Enabled = True
+                End If
+            ElseIf vPhase = 1 Then
+                ReloadTask()
             End If
         End If
     End Sub
