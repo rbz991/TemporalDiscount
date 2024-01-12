@@ -23,16 +23,19 @@ Public Class Data
             x.ArduinoVB()
         End If
     End Sub
-    Private Sub btnFinalizar_Click(sender As Object, e As EventArgs) Handles btnFinalizar.Click
-        End
-    End Sub
     Private Sub rdoPhase1_CheckedChanged(sender As Object, e As EventArgs) Handles rdoPhase1.CheckedChanged, rdoPhase2.CheckedChanged, rdoPhase3.CheckedChanged
         vPhase = sender.Text.Substring(5)
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Arduino.WriteLine("Q")
+        If blnIO = False Then
+            blnIO = True
+            Arduino.WriteLine("Q")
+        ElseIf blnIO = True Then
+            blnIO = False
+            Arduino.WriteLine("q")
+        End If
     End Sub
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Arduino.WriteLine("q")
+    Private Sub btnFinalizar_Click_1(sender As Object, e As EventArgs) Handles btnFinalizar.Click
+        End
     End Sub
 End Class

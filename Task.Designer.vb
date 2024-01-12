@@ -147,7 +147,7 @@ Partial Class Task
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(1651, 752)
+        Me.Label1.Location = New System.Drawing.Point(1688, 790)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(77, 25)
         Me.Label1.TabIndex = 16
@@ -157,6 +157,7 @@ Partial Class Task
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(2412, 1027)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnButton)
@@ -166,6 +167,7 @@ Partial Class Task
         Me.Controls.Add(Me.btnDerecha)
         Me.Controls.Add(Me.btnIzquierda)
         Me.Controls.Add(Me.lblPrefieres)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Task"
         Me.Text = "Form2"

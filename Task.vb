@@ -99,7 +99,6 @@ Public Class Task
             End If
         End If
     End Sub
-
     Private Sub tmrDelay_Tick(sender As Object, e As EventArgs) Handles tmrDelay.Tick
         tmrDelay.Enabled = False
         btnButton.Visible = False
@@ -108,7 +107,6 @@ Public Class Task
         ElseIf vPhase = 1 Then
             BtnRef_()
         End If
-
         ProgressBar1.Value = ProgressBar1.Maximum
     End Sub
     Private Sub BtnRef_()
@@ -153,93 +151,6 @@ Public Class Task
         lblEspera.Visible = False
         ReloadTask()
     End Sub
-    'Private Sub ReloadTask()
-    '    btnRef.Text = "Servir"
-    '    lblPrefieres.Text = "¿Qué prefieres?"
-    '    lblPrefieres.Visible = True
-    '    btnIzquierda.Visible = True
-    '    btnDerecha.Visible = True
-    '    If Delays.Count = 0 Then
-    '        Delays.Add(5000)
-    '        Delays.Add(15000)
-    '        Delays.Add(30000)
-    '        Delays.Add(60000)
-    '    End If
-    '    Dim y As Integer = Rand.Next(Delays.Count)
-    '    ActiveDelay = Delays(y)
-    '    Delays.RemoveAt(y)
-    '    tmrDelay.Interval = ActiveDelay
-    '    tmrRestart.Interval = 85000
-    '    ProgressBar1.Maximum = ActiveDelay
-    '    If vPhase = 1 Then tmrRestart.Interval = 1
-    '    If TaskCount >= 4 Then
-    '        TaskCount = 0
-    '        Trial += 1
-    '        If Trial > 3 Then
-    '            For i = 0 To 3
-    '                Dim rim As String
-    '                rim = Choices(i, 0) & "," & Choices(i, 1) & "," & Choices(i, 2)
-    '                WriteLine(1, rim)
-    '            Next
-    '            Me.Close()
-    '        End If
-    '    End If
-    '    If Trial = 1 Then
-    '        LoadChoices("8 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '    ElseIf Trial = 2 Then
-    '        If ActiveDelay = 5000 And Choices(0, 0) = False Then
-    '            LoadChoices("4 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 5000 And Choices(0, 0) = True Then
-    '            LoadChoices("12 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 15000 And Choices(1, 0) = False Then
-    '            LoadChoices("4 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 15000 And Choices(1, 0) = True Then
-    '            LoadChoices("12 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 30000 And Choices(2, 0) = False Then
-    '            LoadChoices("4 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 30000 And Choices(2, 0) = True Then
-    '            LoadChoices("12 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 60000 And Choices(3, 0) = False Then
-    '            LoadChoices("4 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 60000 And Choices(3, 0) = True Then
-    '            LoadChoices("12 ml ahora", "16 ml en ")
-    '        End If
-    '    ElseIf Trial = 3 Then
-    '        If ActiveDelay = 5000 And Choices(0, 0) = False And Choices(0, 1) = False Then
-    '            LoadChoices("2 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 5000 And Choices(0, 0) = False And Choices(0, 1) = True Then
-    '            LoadChoices("6 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 5000 And Choices(0, 0) = True And Choices(0, 1) = False Then
-    '            LoadChoices("10 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 5000 And Choices(0, 0) = True And Choices(0, 1) = True Then
-    '            LoadChoices("14 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 15000 And Choices(1, 0) = False And Choices(1, 1) = False Then
-    '            LoadChoices("2 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 15000 And Choices(1, 0) = False And Choices(1, 1) = True Then
-    '            LoadChoices("6 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 15000 And Choices(1, 0) = True And Choices(1, 1) = False Then
-    '            LoadChoices("10 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 15000 And Choices(1, 0) = True And Choices(1, 1) = True Then
-    '            LoadChoices("14 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 30000 And Choices(2, 0) = False And Choices(2, 1) = False Then
-    '            LoadChoices("2 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 30000 And Choices(2, 0) = False And Choices(2, 1) = True Then
-    '            LoadChoices("6 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 30000 And Choices(2, 0) = True And Choices(2, 1) = False Then
-    '            LoadChoices("10 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 30000 And Choices(2, 0) = True And Choices(2, 1) = True Then
-    '            LoadChoices("14 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 60000 And Choices(3, 0) = False And Choices(3, 1) = False Then
-    '            LoadChoices("2 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 60000 And Choices(3, 0) = False And Choices(3, 1) = True Then
-    '            LoadChoices("6 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 60000 And Choices(3, 0) = True And Choices(3, 1) = False Then
-    '            LoadChoices("10 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        ElseIf ActiveDelay = 60000 And Choices(3, 0) = True And Choices(3, 1) = True Then
-    '            LoadChoices("14 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-    '        End If
-    '    End If
-    'End Sub
     Private Sub ReloadTask()
         btnRef.Text = "Servir"
         lblPrefieres.Text = "¿Qué prefieres?"

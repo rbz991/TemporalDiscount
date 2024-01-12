@@ -22,9 +22,18 @@ Partial Class Snake
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.SuspendLayout()
+        '
+        'Snake
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Name = "Snake"
         Me.Text = "Snake"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.ResumeLayout(False)
+
     End Sub
 End Class

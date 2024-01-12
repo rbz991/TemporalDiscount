@@ -122,6 +122,9 @@
     <EmbeddedResource Include="Filler.resx">
       <DependentUpon>Filler.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Snake.resx">
+      <DependentUpon>Snake.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Task.resx">
       <DependentUpon>Task.vb</DependentUpon>
     </EmbeddedResource>

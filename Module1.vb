@@ -12,4 +12,5 @@
     Public vTimeStart As Integer = 0
     Public vTimeNow As Integer = 0
     Public ActiveDelay As Integer = 0
+    Public blnIO As Boolean = False
 End Module
