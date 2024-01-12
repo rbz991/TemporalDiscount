@@ -42,7 +42,7 @@ Partial Class Task
         '
         Me.lblPrefieres.AutoSize = True
         Me.lblPrefieres.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrefieres.Location = New System.Drawing.Point(1022, 17)
+        Me.lblPrefieres.Location = New System.Drawing.Point(413, 30)
         Me.lblPrefieres.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPrefieres.Name = "lblPrefieres"
         Me.lblPrefieres.Size = New System.Drawing.Size(1033, 63)
@@ -54,7 +54,7 @@ Partial Class Task
         Me.btnIzquierda.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnIzquierda.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnIzquierda.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIzquierda.Location = New System.Drawing.Point(13, 315)
+        Me.btnIzquierda.Location = New System.Drawing.Point(13, 306)
         Me.btnIzquierda.Margin = New System.Windows.Forms.Padding(4)
         Me.btnIzquierda.Name = "btnIzquierda"
         Me.btnIzquierda.Size = New System.Drawing.Size(650, 400)
@@ -68,7 +68,7 @@ Partial Class Task
         Me.btnDerecha.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.btnDerecha.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnDerecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDerecha.Location = New System.Drawing.Point(1749, 315)
+        Me.btnDerecha.Location = New System.Drawing.Point(1231, 306)
         Me.btnDerecha.Margin = New System.Windows.Forms.Padding(4)
         Me.btnDerecha.Name = "btnDerecha"
         Me.btnDerecha.Size = New System.Drawing.Size(650, 400)
@@ -85,7 +85,7 @@ Partial Class Task
         Me.btnRef.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnRef.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.btnRef.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRef.Location = New System.Drawing.Point(846, 456)
+        Me.btnRef.Location = New System.Drawing.Point(646, 314)
         Me.btnRef.Margin = New System.Windows.Forms.Padding(4)
         Me.btnRef.Name = "btnRef"
         Me.btnRef.Size = New System.Drawing.Size(600, 385)
@@ -100,10 +100,10 @@ Partial Class Task
         '
         Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(24, 960)
+        Me.ProgressBar1.Location = New System.Drawing.Point(24, 942)
         Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(6)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(2364, 44)
+        Me.ProgressBar1.Size = New System.Drawing.Size(1846, 44)
         Me.ProgressBar1.TabIndex = 4
         Me.ProgressBar1.Visible = False
         '
@@ -116,7 +116,7 @@ Partial Class Task
         Me.lblEspera.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblEspera.AutoSize = True
         Me.lblEspera.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEspera.Location = New System.Drawing.Point(1022, 148)
+        Me.lblEspera.Location = New System.Drawing.Point(715, 146)
         Me.lblEspera.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEspera.Name = "lblEspera"
         Me.lblEspera.Size = New System.Drawing.Size(424, 63)
@@ -147,7 +147,7 @@ Partial Class Task
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(1688, 790)
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(77, 25)
         Me.Label1.TabIndex = 16
@@ -158,7 +158,7 @@ Partial Class Task
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(2412, 1027)
+        Me.ClientSize = New System.Drawing.Size(1894, 1009)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnButton)
         Me.Controls.Add(Me.lblEspera)
