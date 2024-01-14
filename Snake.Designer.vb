@@ -26,6 +26,7 @@ Partial Class Snake
         Me.tmrSnake = New System.Windows.Forms.Timer(Me.components)
         Me.lblSnake = New System.Windows.Forms.Label()
         Me.lblFood = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'tmrSnake
@@ -39,7 +40,7 @@ Partial Class Snake
         Me.lblSnake.Image = Global.TemporalDiscount.My.Resources.Resources.ball1
         Me.lblSnake.Location = New System.Drawing.Point(300, 300)
         Me.lblSnake.Name = "lblSnake"
-        Me.lblSnake.Size = New System.Drawing.Size(50, 50)
+        Me.lblSnake.Size = New System.Drawing.Size(60, 60)
         Me.lblSnake.TabIndex = 0
         '
         'lblFood
@@ -47,17 +48,29 @@ Partial Class Snake
         Me.lblFood.BackColor = System.Drawing.Color.Transparent
         Me.lblFood.ForeColor = System.Drawing.Color.Transparent
         Me.lblFood.Image = Global.TemporalDiscount.My.Resources.Resources.ball1
-        Me.lblFood.Location = New System.Drawing.Point(100, 250)
+        Me.lblFood.Location = New System.Drawing.Point(553, 475)
         Me.lblFood.Name = "lblFood"
-        Me.lblFood.Size = New System.Drawing.Size(50, 50)
+        Me.lblFood.Size = New System.Drawing.Size(60, 60)
         Me.lblFood.TabIndex = 1
         Me.lblFood.Visible = False
+        '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.ForeColor = System.Drawing.Color.Transparent
+        Me.Label1.Image = Global.TemporalDiscount.My.Resources.Resources.ball1
+        Me.Label1.Location = New System.Drawing.Point(0, 960)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(1900, 60)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Visible = False
         '
         'Snake
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1874, 979)
+        Me.ClientSize = New System.Drawing.Size(1894, 1009)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblFood)
         Me.Controls.Add(Me.lblSnake)
         Me.DoubleBuffered = True
@@ -72,4 +85,5 @@ Partial Class Snake
     Friend WithEvents lblSnake As Label
     Friend WithEvents tmrSnake As Timer
     Friend WithEvents lblFood As Label
+    Friend WithEvents Label1 As Label
 End Class

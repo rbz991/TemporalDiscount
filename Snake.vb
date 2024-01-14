@@ -3,11 +3,9 @@
     Private Mov, MovAnt As Byte
     Private Lon As Short = 0
     Private Tail(50) As Label
-
-
     Private Sub Snake_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.ClientSize = New Size(1400, 800)
-        CX(0) = 200 : CY(0) = 200
+        Me.ClientSize = New Size(1920, 1080)
+        CX(0) = 180 : CY(0) = 180
         lblSnake.Location = New Point(CX(0), CY(0))
         tmrSnake.Enabled = True
         SpawnTails()
@@ -27,10 +25,10 @@
             Tail(i - 1).SetBounds(CX(i), CY(i), Tail(i - 1).Width, Tail(i - 1).Height)
         Next i
 
-        If Mov = 1 Then CX(0) = CX(0) + 50
-        If Mov = 2 Then CX(0) = CX(0) - 50
-        If Mov = 3 Then CY(0) = CY(0) + 50
-        If Mov = 4 Then CY(0) = CY(0) - 50
+        If Mov = 1 Then CX(0) = CX(0) + 60
+        If Mov = 2 Then CX(0) = CX(0) - 60
+        If Mov = 3 Then CY(0) = CY(0) + 60
+        If Mov = 4 Then CY(0) = CY(0) - 60
 
         If lblFood.Visible = False Then SpawnFood()
 
@@ -46,14 +44,19 @@
 
 
 
-        lblSnake.SetBounds(CX(0), CY(0), 50, 50)
+        lblSnake.SetBounds(CX(0), CY(0), 60, 60)
+
+        If CX(0) >= 1400 Or CY(0) >= 800 Or CX(0) <= -10 Or CY(0) <= -10 Then
+            End
+        End If
+
     End Sub
 
     Private Sub SpawnTails()
         For a As Short = 0 To 50
             Tail(a) = New Label
             Tail(a).AutoSize = False
-            Tail(a).Size = New Size(50, 50)
+            Tail(a).Size = New Size(60, 60)
             Tail(a).Image = My.Resources.ball1
             Tail(a).BackColor = Color.Transparent
             Me.Controls.Add(Tail(a))
@@ -64,9 +67,9 @@
     Private Sub SpawnFood()
         Randomize()
         Dim CFX, CFY As Integer
-        CFX = Int(28 * Rnd() + 0)
-        CFY = Int(16 * Rnd() + 0)
-        lblFood.SetBounds(CFX * 50, CFY * 50, 50, 50)
+        CFX = Int(32 * Rnd() + 0)
+        CFY = Int(18 * Rnd() + 0)
+        lblFood.SetBounds(CFX * 60, CFY * 60, 60, 60)
         lblFood.Visible = True
     End Sub
 End Class
