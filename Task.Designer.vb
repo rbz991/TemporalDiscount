@@ -36,6 +36,9 @@ Partial Class Task
         Me.tmrDebug = New System.Windows.Forms.Timer(Me.components)
         Me.tmrPhase1Intervals = New System.Windows.Forms.Timer(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.tmrSnake = New System.Windows.Forms.Timer(Me.components)
+        Me.lblFood = New System.Windows.Forms.Label()
+        Me.lblSnake = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblPrefieres
@@ -152,6 +155,32 @@ Partial Class Task
         Me.Label1.Size = New System.Drawing.Size(77, 25)
         Me.Label1.TabIndex = 16
         Me.Label1.Text = "Label1"
+        Me.Label1.Visible = False
+        '
+        'tmrSnake
+        '
+        Me.tmrSnake.Interval = 300
+        '
+        'lblFood
+        '
+        Me.lblFood.BackColor = System.Drawing.Color.Transparent
+        Me.lblFood.ForeColor = System.Drawing.Color.Transparent
+        Me.lblFood.Image = Global.TemporalDiscount.My.Resources.Resources.ball1
+        Me.lblFood.Location = New System.Drawing.Point(166, -60)
+        Me.lblFood.Name = "lblFood"
+        Me.lblFood.Size = New System.Drawing.Size(60, 60)
+        Me.lblFood.TabIndex = 18
+        Me.lblFood.Visible = False
+        '
+        'lblSnake
+        '
+        Me.lblSnake.BackColor = System.Drawing.Color.Transparent
+        Me.lblSnake.ForeColor = System.Drawing.Color.Transparent
+        Me.lblSnake.Image = Global.TemporalDiscount.My.Resources.Resources.ball1
+        Me.lblSnake.Location = New System.Drawing.Point(100, -60)
+        Me.lblSnake.Name = "lblSnake"
+        Me.lblSnake.Size = New System.Drawing.Size(60, 60)
+        Me.lblSnake.TabIndex = 17
         '
         'Task
         '
@@ -159,6 +188,8 @@ Partial Class Task
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(1894, 1009)
+        Me.Controls.Add(Me.lblFood)
+        Me.Controls.Add(Me.lblSnake)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnButton)
         Me.Controls.Add(Me.lblEspera)
@@ -168,6 +199,7 @@ Partial Class Task
         Me.Controls.Add(Me.btnIzquierda)
         Me.Controls.Add(Me.lblPrefieres)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Task"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -189,4 +221,7 @@ Partial Class Task
     Friend WithEvents tmrDebug As Timer
     Friend WithEvents tmrPhase1Intervals As Timer
     Friend WithEvents Label1 As Label
+    Friend WithEvents tmrSnake As Timer
+    Friend WithEvents lblFood As Label
+    Friend WithEvents lblSnake As Label
 End Class
