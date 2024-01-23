@@ -119,8 +119,8 @@ Public Class Task
             Trial += 1
             ReloadTask()
         Else
-            Reinforce(Ref)
             If vPhase <> 1 Then
+                Reinforce(Ref)
                 If blnWaited = False Then
                     tmrRestart.Enabled = True
                 ElseIf blnWaited = True Then
