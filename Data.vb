@@ -18,6 +18,7 @@ Public Class Data
             WriteLine(1, "Participante: " & txbParticipante.Text)
             WriteLine(1, "Sesion: " & txbSesion.Text)
             WriteLine(1, "Fase: " & vPhase)
+            Arduino.Close()
             Dim x As New Task
             x.Show()
             x.ArduinoVB()
@@ -27,6 +28,11 @@ Public Class Data
         vPhase = sender.Text.Substring(5)
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If Arduinobln = False Then
+            Arduinobln = True
+            Arduino = New SerialPort(txbCOM.Text, 9600)
+            Arduino.Open()
+        End If
         If blnIO = False Then
             blnIO = True
             Arduino.WriteLine("Q")

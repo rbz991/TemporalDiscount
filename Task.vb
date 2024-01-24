@@ -1,8 +1,5 @@
 ﻿Imports System.IO.Ports
 Public Class Task
-    Dim Rand As New Random
-    Public Arduino As SerialPort
-    Public Snaek As New Snake
     Function ArduinoVB() As Integer
         vTimeStart = Environment.TickCount
         Arduino = New SerialPort(Data.txbCOM.Text, 9600)

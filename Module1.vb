@@ -1,4 +1,7 @@
-﻿Module Module1
+﻿Imports System.IO.Ports
+
+Module Module1
+    Public Arduinobln As Boolean = False
     Public PuntajeFiller As Integer = 0
     Public AciertosFiller As Integer = 1
     Public FillerCount As Integer = 0
@@ -13,4 +16,7 @@
     Public vTimeNow As Integer = 0
     Public ActiveDelay As Integer = 0
     Public blnIO As Boolean = False
+    Public Rand As New Random
+    Public Arduino As SerialPort
+    Public Snaek As New Snake
 End Module
