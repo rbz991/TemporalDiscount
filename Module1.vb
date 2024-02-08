@@ -19,4 +19,5 @@ Module Module1
     Public Rand As New Random
     Public Arduino As SerialPort
     Public Snaek As New Snake
+    Public ForcedTrial As Byte = 0
 End Module

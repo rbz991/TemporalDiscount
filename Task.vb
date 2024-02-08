@@ -29,73 +29,115 @@ Public Class Task
         tmrDelay.Enabled = True
     End Sub
     Private Sub btnClick(sender As Object, e As EventArgs) Handles btnIzquierda.Click, btnDerecha.Click
+
+
         lblPrefieres.Visible = False
         btnIzquierda.Visible = False
         btnDerecha.Visible = False
         Ref = sender.text.Substring(0, 2)
-        If Trial = 1 Then
-            If sender.Text = "8 ml ahora" Then
-                If ActiveDelay = 5000 Then Choices(0, 0) = False
-                If ActiveDelay = 15000 Then Choices(1, 0) = False
-                If ActiveDelay = 30000 Then Choices(2, 0) = False
-                If ActiveDelay = 60000 Then Choices(3, 0) = False
-                WriteLine(1, vTimeNow, sender.Text)
-                If vPhase <> 1 Then
-                    btnRef.Visible = True
-                ElseIf vPhase = 1 Then
+
+        If ForcedTrial < 3 Then
+
+
+
+            If sender.Name = "btnIzquierda" Then btnRef.Visible = True
+            If sender.Name = "btnDerecha" Then
+                'tmrDelay.Interval = 60000
+                'Delay()
+                ProgressBar1.Maximum = 10000
+                tmrForcedDelay.Enabled = True
+                ProgressBar1.Visible = True
+                tmrProgressBar.Enabled = True
+            End If
+
+        ElseIf ForcedTrial > 2 Then
+            If Trial = 1 Then
+                If sender.Text = "8 ml ahora" Then
+                    If ActiveDelay = 5000 Then Choices(0, 0) = False
+                    If ActiveDelay = 15000 Then Choices(1, 0) = False
+                    If ActiveDelay = 30000 Then Choices(2, 0) = False
+                    If ActiveDelay = 60000 Then Choices(3, 0) = False
+                    WriteLine(1, vTimeNow, sender.Text, "Demora: " & ActiveDelay)
+                    If vPhase <> 1 Then
+                        btnRef.Visible = True
+                    ElseIf vPhase = 1 Then
+                        Delay()
+                    End If
+                Else
+                    blnWaited = True
+                    If ActiveDelay = 5000 Then Choices(0, 0) = True
+                    If ActiveDelay = 15000 Then Choices(1, 0) = True
+                    If ActiveDelay = 30000 Then Choices(2, 0) = True
+                    If ActiveDelay = 60000 Then Choices(3, 0) = True
+                    WriteLine(1, vTimeNow, sender.Text)
                     Delay()
                 End If
-            Else
-                blnWaited = True
-                If ActiveDelay = 5000 Then Choices(0, 0) = True
-                If ActiveDelay = 15000 Then Choices(1, 0) = True
-                If ActiveDelay = 30000 Then Choices(2, 0) = True
-                If ActiveDelay = 60000 Then Choices(3, 0) = True
-                WriteLine(1, vTimeNow, sender.Text)
-                Delay()
-            End If
-        ElseIf Trial = 2 Then
-            If sender.Text = "4 ml ahora" Or sender.Text = "12 ml ahora" Then
-                If ActiveDelay = 5000 Then Choices(0, 1) = False
-                If ActiveDelay = 15000 Then Choices(1, 1) = False
-                If ActiveDelay = 30000 Then Choices(2, 1) = False
-                If ActiveDelay = 60000 Then Choices(3, 1) = False
-                WriteLine(1, vTimeNow, sender.Text)
-                If vPhase <> 1 Then
-                    btnRef.Visible = True
-                ElseIf vPhase = 1 Then
+            ElseIf Trial = 2 Then
+                If sender.Text = "4 ml ahora" Or sender.Text = "12 ml ahora" Then
+                    If ActiveDelay = 5000 Then Choices(0, 1) = False
+                    If ActiveDelay = 15000 Then Choices(1, 1) = False
+                    If ActiveDelay = 30000 Then Choices(2, 1) = False
+                    If ActiveDelay = 60000 Then Choices(3, 1) = False
+                    WriteLine(1, vTimeNow, sender.Text, "Demora: " & ActiveDelay)
+                    If vPhase <> 1 Then
+                        btnRef.Visible = True
+                    ElseIf vPhase = 1 Then
+                        Delay()
+                    End If
+                Else
+                    blnWaited = True
+                    If ActiveDelay = 5000 Then Choices(0, 1) = True
+                    If ActiveDelay = 15000 Then Choices(1, 1) = True
+                    If ActiveDelay = 30000 Then Choices(2, 1) = True
+                    If ActiveDelay = 60000 Then Choices(3, 1) = True
+                    WriteLine(1, vTimeNow, sender.Text)
                     Delay()
                 End If
-            Else
-                blnWaited = True
-                If ActiveDelay = 5000 Then Choices(0, 1) = True
-                If ActiveDelay = 15000 Then Choices(1, 1) = True
-                If ActiveDelay = 30000 Then Choices(2, 1) = True
-                If ActiveDelay = 60000 Then Choices(3, 1) = True
-                WriteLine(1, vTimeNow, sender.Text)
-                Delay()
-            End If
-        ElseIf Trial = 3 Then
-            If sender.Text = "2 ml ahora" Or sender.Text = "6 ml ahora" Or sender.Text = "10 ml ahora" Or sender.Text = "14 ml ahora" Then
-                If ActiveDelay = 5000 Then Choices(0, 2) = False
-                If ActiveDelay = 15000 Then Choices(1, 2) = False
-                If ActiveDelay = 30000 Then Choices(2, 2) = False
-                If ActiveDelay = 60000 Then Choices(3, 2) = False
-                WriteLine(1, vTimeNow, sender.Text)
-                If vPhase <> 1 Then
-                    btnRef.Visible = True
-                ElseIf vPhase = 1 Then
+            ElseIf Trial = 3 Then
+                If sender.Text = "2 ml ahora" Or sender.Text = "6 ml ahora" Or sender.Text = "10 ml ahora" Or sender.Text = "14 ml ahora" Then
+                    If ActiveDelay = 5000 Then Choices(0, 2) = False
+                    If ActiveDelay = 15000 Then Choices(1, 2) = False
+                    If ActiveDelay = 30000 Then Choices(2, 2) = False
+                    If ActiveDelay = 60000 Then Choices(3, 2) = False
+                    WriteLine(1, vTimeNow, sender.Text, "Demora: " & ActiveDelay)
+                    If vPhase <> 1 Then
+                        btnRef.Visible = True
+                    ElseIf vPhase = 1 Then
+                        Delay()
+                    End If
+                Else
+                    blnWaited = True
+                    If ActiveDelay = 5000 Then Choices(0, 2) = True
+                    If ActiveDelay = 15000 Then Choices(1, 2) = True
+                    If ActiveDelay = 30000 Then Choices(2, 2) = True
+                    If ActiveDelay = 60000 Then Choices(3, 2) = True
+                    WriteLine(1, vTimeNow, sender.Text)
                     Delay()
                 End If
-            Else
-                blnWaited = True
-                If ActiveDelay = 5000 Then Choices(0, 2) = True
-                If ActiveDelay = 15000 Then Choices(1, 2) = True
-                If ActiveDelay = 30000 Then Choices(2, 2) = True
-                If ActiveDelay = 60000 Then Choices(3, 2) = True
-                WriteLine(1, vTimeNow, sender.Text)
-                Delay()
+            ElseIf Trial = 4 Then
+                If sender.Text = "8 ml ahora" Then
+                    If ActiveDelay = 5000 Then Choices(0, 0) = False
+                    If ActiveDelay = 15000 Then Choices(1, 0) = False
+                    If ActiveDelay = 30000 Then Choices(2, 0) = False
+                    If ActiveDelay = 60000 Then Choices(3, 0) = False
+                    WriteLine(1, vTimeNow, sender.Text, "Demora: " & ActiveDelay)
+                    If vPhase <> 1 Then
+                        btnRef.Visible = True
+                    ElseIf vPhase = 1 Then
+                        Delay()
+                    End If
+                Else
+                    blnWaited = True
+                    If ActiveDelay = 5000 Then Choices(0, 0) = True
+                    If ActiveDelay = 15000 Then Choices(1, 0) = True
+                    If ActiveDelay = 30000 Then Choices(2, 0) = True
+                    If ActiveDelay = 60000 Then Choices(3, 0) = True
+                    WriteLine(1, vTimeNow, sender.Text)
+                    Delay()
+                End If
             End If
+        Else
+
         End If
     End Sub
     Private Sub tmrDelay_Tick(sender As Object, e As EventArgs) Handles tmrDelay.Tick
@@ -111,22 +153,40 @@ Public Class Task
     End Sub
     Private Sub BtnRef_()
         btnRef.Visible = False
-        If Trial = 0 Then
-            WriteLine(1, vTimeNow, 0)
-            Trial += 1
-            ReloadTask()
-        Else
-            If vPhase <> 1 Then
-                Reinforce(Ref)
-                If blnWaited = False Then
-                    tmrRestart.Enabled = True
-                ElseIf blnWaited = True Then
-                    blnWaited = False
-                    tmrRestart.Interval = (85000 - tmrDelay.Interval)
-                    tmrRestart.Enabled = True
-                End If
-            ElseIf vPhase = 1 Then
+
+
+
+        If vPhase = 1 Then ForcedTrial = 3
+
+
+        If ForcedTrial < 3 Then
+            Reinforce(Ref)
+
+        ElseIf ForcedTrial > 2 Then
+            If Trial = 0 Then
+                WriteLine(1, vTimeNow, 0)
+                Trial += 1
                 ReloadTask()
+            Else
+                If vPhase <> 1 Then
+                    Reinforce(Ref)
+                    If blnWaited = False Then
+                        tmrRestart.Enabled = True
+                    ElseIf blnWaited = True Then
+                        blnWaited = False
+                        tmrRestart.Interval = (85000 - tmrDelay.Interval)
+                        tmrRestart.Enabled = True
+                    End If
+                ElseIf vPhase = 1 Then
+                    ReloadTask()
+                End If
+            End If
+        End If
+        If vPhase = 2 Or vPhase = 3 Then
+            If ForcedTrial < 3 Then
+                ForcedTrial += 1
+                ReloadTask()
+                If ForcedTrial = 3 Then Trial += 1
             End If
         End If
     End Sub
@@ -151,74 +211,98 @@ Public Class Task
         lblEspera.Visible = False
         ReloadTask()
     End Sub
-    Private Sub ReloadTask()
+    Private Sub FTrial()
         btnRef.Text = "Servir"
         lblPrefieres.Text = "¿Qué prefieres?"
         lblPrefieres.Visible = True
         btnIzquierda.Visible = True
         btnDerecha.Visible = True
-        If Delays.Count = 0 Then
-            Delays.Add(5000)
-            Delays.Add(15000)
-            Delays.Add(30000)
-            Delays.Add(60000)
-        End If
-        Dim y As Integer = Rand.Next(Delays.Count)
-        ActiveDelay = Delays(y)
-        Delays.RemoveAt(y)
-        tmrDelay.Interval = ActiveDelay
-        tmrRestart.Interval = 85000
-        ProgressBar1.Maximum = ActiveDelay
-        If vPhase = 1 Then tmrRestart.Interval = 1
-        If TaskCount >= 4 Then
-            TaskCount = 0
-            Trial += 1
-            If Trial > 3 Then
-                For i = 0 To 3
-                    Dim rim As String
-                    rim = Choices(i, 0) & "," & Choices(i, 1) & "," & Choices(i, 2)
-                    WriteLine(1, rim)
-                Next
-                Me.Close()
+        btnIzquierda.Text = "8 ml ahora"
+        btnDerecha.Text = "16 ml en 60 segundos"
+    End Sub
+    Private Sub ReloadTask()
+        If ForcedTrial = 1 Then
+            FTrial()
+            btnIzquierda.Enabled = True
+            btnDerecha.Enabled = False
+        ElseIf ForcedTrial = 2 Then
+            FTrial()
+
+            btnIzquierda.Enabled = False
+            btnDerecha.Enabled = True
+        ElseIf ForcedTrial > 2 Then
+            btnIzquierda.Enabled = True
+            btnDerecha.Enabled = True
+            btnRef.Text = "Servir"
+            lblPrefieres.Text = "¿Qué prefieres?"
+            lblPrefieres.Visible = True
+            btnIzquierda.Visible = True
+            btnDerecha.Visible = True
+            If Delays.Count = 0 Then
+                Delays.Add(5000)
+                Delays.Add(15000)
+                Delays.Add(30000)
+                Delays.Add(60000)
             End If
-        End If
-        If Trial = 1 Then
-            LoadChoices("8 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
-        ElseIf Trial = 2 Then
-            If ActiveDelay = 5000 Then
-                If Choices(0, 0) = False Then LoadChoices("4 ml ahora", "16 ml en 5 segundos")
-                If Choices(0, 0) = True Then LoadChoices("12 ml ahora", "16 ml en 5 segundos")
-            ElseIf ActiveDelay = 15000 Then
-                If Choices(1, 0) = False Then LoadChoices("4 ml ahora", "16 ml en 15 segundos")
-                If Choices(1, 0) = True Then LoadChoices("12 ml ahora", "16 ml en 15 segundos")
-            ElseIf ActiveDelay = 30000 Then
-                If Choices(2, 0) = False Then LoadChoices("4 ml ahora", "16 ml en 30 segundos")
-                If Choices(2, 0) = True Then LoadChoices("12 ml ahora", "16 ml en 30 segundos")
-            ElseIf ActiveDelay = 60000 Then
-                If Choices(3, 0) = False Then LoadChoices("4 ml ahora", "16 ml en 60 segundos")
-                If Choices(3, 0) = True Then LoadChoices("12 ml ahora", "16 ml en 60 segundos")
+            Dim y As Integer = Rand.Next(Delays.Count)
+            ActiveDelay = Delays(y)
+            Delays.RemoveAt(y)
+            tmrDelay.Interval = ActiveDelay
+            tmrRestart.Interval = 85000
+            ProgressBar1.Maximum = ActiveDelay
+            If vPhase = 1 Then tmrRestart.Interval = 1
+            If TaskCount >= 4 Then
+                TaskCount = 0
+                Trial += 1
+                If Trial > 4 Then
+                    For i = 0 To 3
+                        Dim rim As String
+                        rim = Choices(i, 0) & "," & Choices(i, 1) & "," & Choices(i, 2)
+                        WriteLine(1, rim)
+                    Next
+                    Me.Close()
+                End If
             End If
-        ElseIf Trial = 3 Then
-            If ActiveDelay = 5000 Then
-                If Choices(0, 0) = False And Choices(0, 1) = False Then LoadChoices("2 ml ahora", "16 ml en 5 segundos")
-                If Choices(0, 0) = False And Choices(0, 1) = True Then LoadChoices("6 ml ahora", "16 ml en 5 segundos")
-                If Choices(0, 0) = True And Choices(0, 1) = False Then LoadChoices("10 ml ahora", "16 ml en 5 segundos")
-                If Choices(0, 0) = True And Choices(0, 1) = True Then LoadChoices("14 ml ahora", "16 ml en 5 segundos")
-            ElseIf ActiveDelay = 15000 Then
-                If Choices(1, 0) = False And Choices(1, 1) = False Then LoadChoices("2 ml ahora", "16 ml en 15 segundos")
-                If Choices(1, 0) = False And Choices(1, 1) = True Then LoadChoices("6 ml ahora", "16 ml en 15 segundos")
-                If Choices(1, 0) = True And Choices(1, 1) = False Then LoadChoices("10 ml ahora", "16 ml en 15 segundos")
-                If Choices(1, 0) = True And Choices(1, 1) = True Then LoadChoices("14 ml ahora", "16 ml en 15 segundos")
-            ElseIf ActiveDelay = 30000 Then
-                If Choices(2, 0) = False And Choices(2, 1) = False Then LoadChoices("2 ml ahora", "16 ml en 30 segundos")
-                If Choices(2, 0) = False And Choices(2, 1) = True Then LoadChoices("6 ml ahora", "16 ml en 30 segundos")
-                If Choices(2, 0) = True And Choices(2, 1) = False Then LoadChoices("10 ml ahora", "16 ml en 30 segundos")
-                If Choices(2, 0) = True And Choices(2, 1) = True Then LoadChoices("14 ml ahora", "16 ml en 30 segundos")
-            ElseIf ActiveDelay = 60000 Then
-                If Choices(3, 0) = False And Choices(3, 1) = False Then LoadChoices("2 ml ahora", "16 ml en 60 segundos")
-                If Choices(3, 0) = False And Choices(3, 1) = True Then LoadChoices("6 ml ahora", "16 ml en 60 segundos")
-                If Choices(3, 0) = True And Choices(3, 1) = False Then LoadChoices("10 ml ahora", "16 ml en 60 segundos")
-                If Choices(3, 0) = True And Choices(3, 1) = True Then LoadChoices("14 ml ahora", "16 ml en 60 segundos")
+            If Trial = 1 Then
+                LoadChoices("8 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
+            ElseIf Trial = 2 Then
+                If ActiveDelay = 5000 Then
+                    If Choices(0, 0) = False Then LoadChoices("4 ml ahora", "16 ml en 5 segundos")
+                    If Choices(0, 0) = True Then LoadChoices("12 ml ahora", "16 ml en 5 segundos")
+                ElseIf ActiveDelay = 15000 Then
+                    If Choices(1, 0) = False Then LoadChoices("4 ml ahora", "16 ml en 15 segundos")
+                    If Choices(1, 0) = True Then LoadChoices("12 ml ahora", "16 ml en 15 segundos")
+                ElseIf ActiveDelay = 30000 Then
+                    If Choices(2, 0) = False Then LoadChoices("4 ml ahora", "16 ml en 30 segundos")
+                    If Choices(2, 0) = True Then LoadChoices("12 ml ahora", "16 ml en 30 segundos")
+                ElseIf ActiveDelay = 60000 Then
+                    If Choices(3, 0) = False Then LoadChoices("4 ml ahora", "16 ml en 60 segundos")
+                    If Choices(3, 0) = True Then LoadChoices("12 ml ahora", "16 ml en 60 segundos")
+                End If
+            ElseIf Trial = 3 Then
+                If ActiveDelay = 5000 Then
+                    If Choices(0, 0) = False And Choices(0, 1) = False Then LoadChoices("2 ml ahora", "16 ml en 5 segundos")
+                    If Choices(0, 0) = False And Choices(0, 1) = True Then LoadChoices("6 ml ahora", "16 ml en 5 segundos")
+                    If Choices(0, 0) = True And Choices(0, 1) = False Then LoadChoices("10 ml ahora", "16 ml en 5 segundos")
+                    If Choices(0, 0) = True And Choices(0, 1) = True Then LoadChoices("14 ml ahora", "16 ml en 5 segundos")
+                ElseIf ActiveDelay = 15000 Then
+                    If Choices(1, 0) = False And Choices(1, 1) = False Then LoadChoices("2 ml ahora", "16 ml en 15 segundos")
+                    If Choices(1, 0) = False And Choices(1, 1) = True Then LoadChoices("6 ml ahora", "16 ml en 15 segundos")
+                    If Choices(1, 0) = True And Choices(1, 1) = False Then LoadChoices("10 ml ahora", "16 ml en 15 segundos")
+                    If Choices(1, 0) = True And Choices(1, 1) = True Then LoadChoices("14 ml ahora", "16 ml en 15 segundos")
+                ElseIf ActiveDelay = 30000 Then
+                    If Choices(2, 0) = False And Choices(2, 1) = False Then LoadChoices("2 ml ahora", "16 ml en 30 segundos")
+                    If Choices(2, 0) = False And Choices(2, 1) = True Then LoadChoices("6 ml ahora", "16 ml en 30 segundos")
+                    If Choices(2, 0) = True And Choices(2, 1) = False Then LoadChoices("10 ml ahora", "16 ml en 30 segundos")
+                    If Choices(2, 0) = True And Choices(2, 1) = True Then LoadChoices("14 ml ahora", "16 ml en 30 segundos")
+                ElseIf ActiveDelay = 60000 Then
+                    If Choices(3, 0) = False And Choices(3, 1) = False Then LoadChoices("2 ml ahora", "16 ml en 60 segundos")
+                    If Choices(3, 0) = False And Choices(3, 1) = True Then LoadChoices("6 ml ahora", "16 ml en 60 segundos")
+                    If Choices(3, 0) = True And Choices(3, 1) = False Then LoadChoices("10 ml ahora", "16 ml en 60 segundos")
+                    If Choices(3, 0) = True And Choices(3, 1) = True Then LoadChoices("14 ml ahora", "16 ml en 60 segundos")
+                End If
+            ElseIf Trial = 4 Then
+                LoadChoices("8 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
             End If
         End If
     End Sub
@@ -251,10 +335,13 @@ Public Class Task
         WriteLine(1, vTimeNow, 10)
     End Sub
     Private Sub tmrDebug_Tick(sender As Object, e As EventArgs) Handles tmrDebug.Tick
-        Me.Text = "Delay:" & ActiveDelay & " Trial:" & Trial & "DelaysLeft" & Delays.Count
+        Me.Text = "Delay:" & ActiveDelay & " Trial:" & Trial & "DelaysLeft" & Delays.Count & "ForcedTrial" & ForcedTrial
     End Sub
 
+    Private Sub tmrForcedDelay_Tick(sender As Object, e As EventArgs) Handles tmrForcedDelay.Tick
+        tmrForcedDelay.Enabled = False
 
+    End Sub
 
 
     Private CX(50), CY(50) As Integer
@@ -327,6 +414,9 @@ Public Class Task
             Tail(a).Visible = False
         Next
     End Sub
+
+
+
     Private Sub SpawnFood()
         Randomize()
         Dim CFX, CFY As Integer

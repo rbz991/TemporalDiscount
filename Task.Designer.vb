@@ -39,6 +39,7 @@ Partial Class Task
         Me.tmrSnake = New System.Windows.Forms.Timer(Me.components)
         Me.lblFood = New System.Windows.Forms.Label()
         Me.lblSnake = New System.Windows.Forms.Label()
+        Me.tmrForcedDelay = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'lblPrefieres
@@ -182,6 +183,10 @@ Partial Class Task
         Me.lblSnake.Size = New System.Drawing.Size(60, 60)
         Me.lblSnake.TabIndex = 17
         '
+        'tmrForcedDelay
+        '
+        Me.tmrForcedDelay.Interval = 10000
+        '
         'Task
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
@@ -224,4 +229,5 @@ Partial Class Task
     Friend WithEvents tmrSnake As Timer
     Friend WithEvents lblFood As Label
     Friend WithEvents lblSnake As Label
+    Friend WithEvents tmrForcedDelay As Timer
 End Class
