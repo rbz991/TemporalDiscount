@@ -2,14 +2,17 @@
 Public Class Task
     Function ArduinoVB() As Integer
         vTimeStart = Environment.TickCount
+
+
+
         Arduino = New SerialPort(Data.txbCOM.Text, 9600)
         Arduino.Open()
         Do
             vTimeNow = Environment.TickCount - vTimeStart
-            Label1.Text = Choices(0, 0) & Choices(0, 1) & Choices(0, 2) & vbCrLf &
-                Choices(1, 0) & Choices(1, 1) & Choices(1, 2) & vbCrLf &
-                Choices(2, 0) & Choices(2, 1) & Choices(2, 2) & vbCrLf &
-                Choices(3, 0) & Choices(3, 1) & Choices(3, 2)
+            Label1.Text = Choices(0, 0) & Choices(0, 1) & Choices(0, 2) & Choices(0, 3) & vbCrLf &
+                Choices(1, 0) & Choices(1, 1) & Choices(1, 2) & Choices(1, 3) & vbCrLf &
+                Choices(2, 0) & Choices(2, 1) & Choices(2, 2) & Choices(2, 3) & vbCrLf &
+                Choices(3, 0) & Choices(3, 1) & Choices(3, 2) & Choices(3, 3)
             My.Application.DoEvents()
         Loop
         Return 0
@@ -42,9 +45,9 @@ Public Class Task
 
             If sender.Name = "btnIzquierda" Then btnRef.Visible = True
             If sender.Name = "btnDerecha" Then
-                'tmrDelay.Interval = 60000
+                tmrDelay.Interval = 60000
                 'Delay()
-                ProgressBar1.Maximum = 10000
+                ProgressBar1.Maximum = 60000
                 tmrForcedDelay.Enabled = True
                 ProgressBar1.Visible = True
                 tmrProgressBar.Enabled = True
@@ -116,10 +119,10 @@ Public Class Task
                 End If
             ElseIf Trial = 4 Then
                 If sender.Text = "8 ml ahora" Then
-                    If ActiveDelay = 5000 Then Choices(0, 0) = False
-                    If ActiveDelay = 15000 Then Choices(1, 0) = False
-                    If ActiveDelay = 30000 Then Choices(2, 0) = False
-                    If ActiveDelay = 60000 Then Choices(3, 0) = False
+                    If ActiveDelay = 5000 Then Choices(0, 3) = False
+                    If ActiveDelay = 15000 Then Choices(1, 3) = False
+                    If ActiveDelay = 30000 Then Choices(2, 3) = False
+                    If ActiveDelay = 60000 Then Choices(3, 3) = False
                     WriteLine(1, vTimeNow, sender.Text, "Demora: " & ActiveDelay)
                     If vPhase <> 1 Then
                         btnRef.Visible = True
@@ -128,10 +131,10 @@ Public Class Task
                     End If
                 Else
                     blnWaited = True
-                    If ActiveDelay = 5000 Then Choices(0, 0) = True
-                    If ActiveDelay = 15000 Then Choices(1, 0) = True
-                    If ActiveDelay = 30000 Then Choices(2, 0) = True
-                    If ActiveDelay = 60000 Then Choices(3, 0) = True
+                    If ActiveDelay = 5000 Then Choices(0, 3) = True
+                    If ActiveDelay = 15000 Then Choices(1, 3) = True
+                    If ActiveDelay = 30000 Then Choices(2, 3) = True
+                    If ActiveDelay = 60000 Then Choices(3, 3) = True
                     WriteLine(1, vTimeNow, sender.Text)
                     Delay()
                 End If
@@ -183,7 +186,7 @@ Public Class Task
             End If
         End If
         If vPhase = 2 Or vPhase = 3 Then
-            If ForcedTrial < 3 Then
+            If ForcedTrial < 3 Then ''''''''''''''''''''''''''''''''''''''''''''''''''
                 ForcedTrial += 1
                 ReloadTask()
                 If ForcedTrial = 3 Then Trial += 1
@@ -251,7 +254,7 @@ Public Class Task
             tmrRestart.Interval = 85000
             ProgressBar1.Maximum = ActiveDelay
             If vPhase = 1 Then tmrRestart.Interval = 1
-            If TaskCount >= 4 Then
+            If TaskCount >= 3 Then '''''''''''''''''''''''''''''''''''''''
                 TaskCount = 0
                 Trial += 1
                 If Trial > 4 Then
