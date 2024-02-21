@@ -161,11 +161,19 @@ Public Class Task
 
         If vPhase = 1 Then ForcedTrial = 3
 
+        If vPhase = 2 Or vPhase = 3 Then
+            If ForcedTrial < 2 Then ''''''''''''''''''''''''''''''''''''''''''''''''''
+                ForcedTrial += 1
+                ReloadTask()
+                Reinforce(Ref)
+                'If ForcedTrial = 2 And Trial = 0 Then Trial += 1 ''''''''''''''''
+            Else
+                ForcedTrial = 3
+            End If
+        End If
 
-        If ForcedTrial < 3 Then
-            Reinforce(Ref)
 
-        ElseIf ForcedTrial > 2 Then
+        If ForcedTrial = 3 Then
             If Trial = 0 Then
                 WriteLine(1, vTimeNow, 0)
                 Trial += 1
@@ -185,13 +193,7 @@ Public Class Task
                 End If
             End If
         End If
-        If vPhase = 2 Or vPhase = 3 Then
-            If ForcedTrial < 3 Then ''''''''''''''''''''''''''''''''''''''''''''''''''
-                ForcedTrial += 1
-                ReloadTask()
-                If ForcedTrial = 3 Then Trial += 1
-            End If
-        End If
+
     End Sub
     Private Sub btnRef_Click(sender As Object, e As EventArgs) Handles btnRef.Click
         BtnRef_()
@@ -230,10 +232,9 @@ Public Class Task
             btnDerecha.Enabled = False
         ElseIf ForcedTrial = 2 Then
             FTrial()
-
             btnIzquierda.Enabled = False
             btnDerecha.Enabled = True
-        ElseIf ForcedTrial > 2 Then
+        ElseIf ForcedTrial = 3 Then
             btnIzquierda.Enabled = True
             btnDerecha.Enabled = True
             btnRef.Text = "Servir"
@@ -254,7 +255,7 @@ Public Class Task
             tmrRestart.Interval = 85000
             ProgressBar1.Maximum = ActiveDelay
             If vPhase = 1 Then tmrRestart.Interval = 1
-            If TaskCount >= 3 Then '''''''''''''''''''''''''''''''''''''''
+            If TaskCount >= 4 Then '''''''''''''''''''''''''''''''''''''''
                 TaskCount = 0
                 Trial += 1
                 If Trial > 4 Then

@@ -156,7 +156,6 @@ Partial Class Task
         Me.Label1.Size = New System.Drawing.Size(77, 25)
         Me.Label1.TabIndex = 16
         Me.Label1.Text = "Label1"
-        Me.Label1.Visible = False
         '
         'tmrSnake
         '
