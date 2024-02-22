@@ -18,7 +18,7 @@ Public Class Data
             WriteLine(1, "Participante: " & txbParticipante.Text)
             WriteLine(1, "Sesion: " & txbSesion.Text)
             WriteLine(1, "Fase: " & vPhase)
-            'Arduino.Close()
+            Arduino.Close()
             Dim x As New Task
             x.Show()
             x.ArduinoVB()
