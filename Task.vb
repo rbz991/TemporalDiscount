@@ -229,14 +229,16 @@ Public Class Task
         If ForcedTrial = 1 Then
             FTrial()
             btnIzquierda.Enabled = True
-            btnDerecha.Enabled = False
+            btnDerecha.Visible = False
         ElseIf ForcedTrial = 2 Then
             FTrial()
-            btnIzquierda.Enabled = False
+            btnIzquierda.Visible = False
             btnDerecha.Enabled = True
         ElseIf ForcedTrial = 3 Then
             btnIzquierda.Enabled = True
             btnDerecha.Enabled = True
+            btnIzquierda.Visible = True
+            btnDerecha.Visible = True
             btnRef.Text = "Servir"
             lblPrefieres.Text = "¿Qué prefieres?"
             lblPrefieres.Visible = True
