@@ -161,7 +161,7 @@ Public Class Task
     End Sub
     Private Sub BtnRef_()
         btnRef.Visible = False
-        If vPhase = 1 Then ForcedTrial = 4
+        If vPhase = 1 Then ForcedTrial = 3
         If ForcedTrial = 0 Then
             ForcedTrial += 1
             ReloadTask()
