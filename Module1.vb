@@ -1,6 +1,7 @@
 ﻿Imports System.IO.Ports
 
 Module Module1
+    Public blnStarting = True
     Public Arduinobln As Boolean = False
     Public PuntajeFiller As Integer = 0
     Public AciertosFiller As Integer = 1

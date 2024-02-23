@@ -43,12 +43,17 @@ Public Class Task
 
 
 
-            If sender.Name = "btnIzquierda" Then btnRef.Visible = True
+            If sender.Name = "btnIzquierda" Then
+                btnRef.Visible = True
+                blnWaited = False
+            End If
+
             If sender.Name = "btnDerecha" Then
-                tmrDelay.Interval = 60000
+                blnWaited = True
+                'tmrDelay.Interval = 60000
                 'Delay()
                 ProgressBar1.Maximum = 60000
-                tmrForcedDelay.Enabled = True
+                'tmrForcedDelay.Enabled = True
                 ProgressBar1.Visible = True
                 tmrProgressBar.Enabled = True
             End If
@@ -156,43 +161,64 @@ Public Class Task
     End Sub
     Private Sub BtnRef_()
         btnRef.Visible = False
+        If vPhase = 1 Then ForcedTrial = 4
+        If ForcedTrial = 0 Then
+            ForcedTrial += 1
+            ReloadTask()
+        ElseIf ForcedTrial = 1 Then
+            ForcedTrial += 1
+            Reinforce(Ref)
+            tmrRestart.Interval = 8500
+            tmrRestart.Enabled = True
+        ElseIf ForcedTrial = 2 Then
+            ForcedTrial += 1
+            Reinforce(Ref)
+            tmrRestart.Interval = 8500
+            tmrRestart.Enabled = True
+        ElseIf ForcedTrial = 3 Then
 
 
 
-        If vPhase = 1 Then ForcedTrial = 3
 
-        If vPhase = 2 Or vPhase = 3 Then
-            If ForcedTrial < 2 Then ''''''''''''''''''''''''''''''''''''''''''''''''''
-                ForcedTrial += 1
-                ReloadTask()
-                Reinforce(Ref)
-                'If ForcedTrial = 2 And Trial = 0 Then Trial += 1 ''''''''''''''''
-            Else
-                ForcedTrial = 3
-            End If
-        End If
+            'If vPhase = 2 Or vPhase = 3 Then
+            '    If ForcedTrial < 2 Then ''''''''''''''''''''''''''''''''''''''''''''''''''
+            '        ForcedTrial += 1
+            '        Reinforce(Ref)
+            '        If blnWaited = False Then
 
+            '        ElseIf blnWaited = True Then
+            '            blnWaited = False
+            '            tmrRestart.Interval = 15000
+            '            tmrRestart.Enabled = True
+            '            'Exit Sub
+            '        End If
+            '        'If ForcedTrial = 2 And Trial = 0 Then Trial += 1 ''''''''''''''''
+            '    Else
+            '        ForcedTrial = 3
+            '    End If
+            'End If
 
-        If ForcedTrial = 3 Then
-            If Trial = 0 Then
-                WriteLine(1, vTimeNow, 0)
-                Trial += 1
-                ReloadTask()
-            Else
-                If vPhase <> 1 Then
-                    Reinforce(Ref)
-                    If blnWaited = False Then
-                        tmrRestart.Enabled = True
-                    ElseIf blnWaited = True Then
-                        blnWaited = False
-                        tmrRestart.Interval = (85000 - tmrDelay.Interval)
-                        tmrRestart.Enabled = True
+            'If ForcedTrial = 4 Then
+
+            'If Trial = 0 Then
+            '        WriteLine(1, vTimeNow, 0)
+            '        Trial += 1
+            '        ReloadTask()
+            '    Else
+            If vPhase <> 1 Then
+                        Reinforce(Ref)
+                        If blnWaited = False Then
+                            tmrRestart.Enabled = True
+                        ElseIf blnWaited = True Then
+                            blnWaited = False
+                            tmrRestart.Interval = (85000 - tmrDelay.Interval)
+                            tmrRestart.Enabled = True
+                        End If
+                    ElseIf vPhase = 1 Then
+                        ReloadTask()
                     End If
-                ElseIf vPhase = 1 Then
-                    ReloadTask()
                 End If
-            End If
-        End If
+        'End If
 
     End Sub
     Private Sub btnRef_Click(sender As Object, e As EventArgs) Handles btnRef.Click
@@ -213,6 +239,10 @@ Public Class Task
     End Sub
     Private Sub tmrRestart_Tick(sender As Object, e As EventArgs) Handles tmrRestart.Tick
         tmrRestart.Enabled = False
+        If ForcedTrial = 3 And blnStarting = True Then
+            blnStarting = False
+            Trial += 1
+        End If
         lblEspera.Visible = False
         ReloadTask()
     End Sub
