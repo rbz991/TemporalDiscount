@@ -161,19 +161,23 @@ Public Class Task
     End Sub
     Private Sub BtnRef_()
         btnRef.Visible = False
-        If vPhase = 1 Then ForcedTrial = 3
+        If vPhase = 1 And blnStarting = True Then
+            blnStarting = False
+            ForcedTrial = 3
+            Trial += 1
+        End If
         If ForcedTrial = 0 Then
             ForcedTrial += 1
             ReloadTask()
         ElseIf ForcedTrial = 1 Then
             ForcedTrial += 1
             Reinforce(Ref)
-            tmrRestart.Interval = 8500
+            tmrRestart.Interval = 85000
             tmrRestart.Enabled = True
         ElseIf ForcedTrial = 2 Then
             ForcedTrial += 1
             Reinforce(Ref)
-            tmrRestart.Interval = 8500
+            tmrRestart.Interval = 25000
             tmrRestart.Enabled = True
         ElseIf ForcedTrial = 3 Then
 
@@ -206,18 +210,18 @@ Public Class Task
             '        ReloadTask()
             '    Else
             If vPhase <> 1 Then
-                        Reinforce(Ref)
-                        If blnWaited = False Then
-                            tmrRestart.Enabled = True
-                        ElseIf blnWaited = True Then
-                            blnWaited = False
-                            tmrRestart.Interval = (85000 - tmrDelay.Interval)
-                            tmrRestart.Enabled = True
-                        End If
-                    ElseIf vPhase = 1 Then
-                        ReloadTask()
-                    End If
+                Reinforce(Ref)
+                If blnWaited = False Then
+                    tmrRestart.Enabled = True
+                ElseIf blnWaited = True Then
+                    blnWaited = False
+                    tmrRestart.Interval = (85000 - tmrDelay.Interval)
+                    tmrRestart.Enabled = True
                 End If
+            ElseIf vPhase = 1 Then
+                ReloadTask()
+            End If
+        End If
         'End If
 
     End Sub
