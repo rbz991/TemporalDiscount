@@ -52,7 +52,7 @@ Public Class Task
                 blnWaited = True
                 'tmrDelay.Interval = 60000
                 'Delay()
-                ProgressBar1.Maximum = 60000
+                ProgressBar1.Maximum = 20000
                 'tmrForcedDelay.Enabled = True
                 ProgressBar1.Visible = True
                 tmrProgressBar.Enabled = True
@@ -257,7 +257,7 @@ Public Class Task
         btnIzquierda.Visible = True
         btnDerecha.Visible = True
         btnIzquierda.Text = "8 ml ahora"
-        btnDerecha.Text = "16 ml en 60 segundos"
+        btnDerecha.Text = "16 ml en 20 segundos"
     End Sub
     Private Sub ReloadTask()
         If ForcedTrial = 1 Then
