@@ -56,6 +56,7 @@ Public Class Task
                 'tmrForcedDelay.Enabled = True
                 ProgressBar1.Visible = True
                 tmrProgressBar.Enabled = True
+                If vPhase = 3 Then Snake_Load()
             End If
 
         ElseIf ForcedTrial > 2 Then
@@ -177,7 +178,7 @@ Public Class Task
         ElseIf ForcedTrial = 2 Then
             ForcedTrial += 1
             Reinforce(Ref)
-            tmrRestart.Interval = 25000
+            tmrRestart.Interval = 65000
             tmrRestart.Enabled = True
         ElseIf ForcedTrial = 3 Then
 
@@ -364,8 +365,9 @@ Public Class Task
             lblEspera.Visible = False
             ProgressBar1.Value = 0
             btnRef.Visible = True
+            If vPhase = 3 Then Snake_End()
         Else
-            ProgressBar1.Value = ProgressBar1.Value + ProgressBar1.Maximum / ((ProgressBar1.Maximum) / 500)
+                ProgressBar1.Value = ProgressBar1.Value + ProgressBar1.Maximum / ((ProgressBar1.Maximum) / 500)
         End If
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnButton.Click
