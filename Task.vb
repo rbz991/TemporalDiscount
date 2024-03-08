@@ -1,5 +1,6 @@
 ﻿Imports System.IO.Ports
 Public Class Task
+
     Function ArduinoVB() As Integer
         vTimeStart = Environment.TickCount
 
@@ -367,7 +368,7 @@ Public Class Task
             btnRef.Visible = True
             If vPhase = 3 Then Snake_End()
         Else
-                ProgressBar1.Value = ProgressBar1.Value + ProgressBar1.Maximum / ((ProgressBar1.Maximum) / 500)
+            ProgressBar1.Value = ProgressBar1.Value + ProgressBar1.Maximum / ((ProgressBar1.Maximum) / 500)
         End If
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnButton.Click
@@ -407,7 +408,11 @@ Public Class Task
         lblSnake.Location = New Point(CX(0), CY(0))
         SpawnTails()
     End Sub
+
+
+
     Private Sub Snake_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Space Then e.SuppressKeyPress = True
         If e.KeyCode = Keys.Right And MovAnt <> 2 Then Mov = 1
         If e.KeyCode = Keys.Left And MovAnt <> 1 Then Mov = 2
         If e.KeyCode = Keys.Down And MovAnt <> 4 Then Mov = 3
