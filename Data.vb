@@ -1,6 +1,6 @@
 ﻿Imports System.IO.Ports
 Public Class Data
-    Public Arduino As New SerialPort
+    Public Arduino As SerialPort
     Private Sub btnComenzar_Click(sender As Object, e As EventArgs) Handles btnComenzar.Click
         If vPhase = 0 Or txbParticipante.Text = "" Or IsNumeric(txbSesion.Text) = False Or txbCOM.Text = "" Then
             MsgBox("Por favor verifica que los datos ingresados sean correctos.")
@@ -18,7 +18,7 @@ Public Class Data
             WriteLine(1, "Participante: " & txbParticipante.Text)
             WriteLine(1, "Sesion: " & txbSesion.Text)
             WriteLine(1, "Fase: " & vPhase)
-            Arduino.Close()
+            If Arduinobln = True Then Arduino.Close()
             Dim x As New Task
             x.Show()
             x.ArduinoVB()
