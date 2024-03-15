@@ -1,6 +1,6 @@
 ﻿Imports System.IO.Ports
 Public Class Data
-    Public Arduino As SerialPort
+    Public Arduino As New SerialPort
     Private Sub btnComenzar_Click(sender As Object, e As EventArgs) Handles btnComenzar.Click
         If vPhase = 0 Or txbParticipante.Text = "" Or IsNumeric(txbSesion.Text) = False Or txbCOM.Text = "" Then
             MsgBox("Por favor verifica que los datos ingresados sean correctos.")
