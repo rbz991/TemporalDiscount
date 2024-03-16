@@ -45,11 +45,11 @@ Partial Class Task
         'lblPrefieres
         '
         Me.lblPrefieres.AutoSize = True
-        Me.lblPrefieres.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrefieres.Location = New System.Drawing.Point(413, 30)
+        Me.lblPrefieres.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.125!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrefieres.Location = New System.Drawing.Point(13, 9)
         Me.lblPrefieres.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPrefieres.Name = "lblPrefieres"
-        Me.lblPrefieres.Size = New System.Drawing.Size(1033, 63)
+        Me.lblPrefieres.Size = New System.Drawing.Size(1438, 85)
         Me.lblPrefieres.TabIndex = 0
         Me.lblPrefieres.Text = "Da click para iniciar la toma de decisiones"
         '
@@ -119,11 +119,11 @@ Partial Class Task
         '
         Me.lblEspera.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblEspera.AutoSize = True
-        Me.lblEspera.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEspera.Location = New System.Drawing.Point(715, 146)
+        Me.lblEspera.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.125!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEspera.Location = New System.Drawing.Point(631, 225)
         Me.lblEspera.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEspera.Name = "lblEspera"
-        Me.lblEspera.Size = New System.Drawing.Size(424, 63)
+        Me.lblEspera.Size = New System.Drawing.Size(593, 85)
         Me.lblEspera.TabIndex = 5
         Me.lblEspera.Text = "Por favor espera"
         Me.lblEspera.Visible = False
@@ -141,7 +141,6 @@ Partial Class Task
         '
         'tmrDebug
         '
-        Me.tmrDebug.Enabled = True
         Me.tmrDebug.Interval = 5
         '
         'tmrPhase1Intervals
@@ -156,6 +155,7 @@ Partial Class Task
         Me.Label1.Size = New System.Drawing.Size(77, 25)
         Me.Label1.TabIndex = 16
         Me.Label1.Text = "Label1"
+        Me.Label1.Visible = False
         '
         'tmrSnake
         '
