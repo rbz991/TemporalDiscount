@@ -3,11 +3,8 @@ Public Class Task
 
     Function ArduinoVB() As Integer
         vTimeStart = Environment.TickCount
-
-
-
-        Arduino = New SerialPort(Data.txbCOM.Text, 9600)
-        Arduino.Open()
+        'Arduino = New SerialPort(Data.txbCOM.Text, 9600)
+        'Arduino.Open()
         Do
             vTimeNow = Environment.TickCount - vTimeStart
             Label1.Text = Choices(0, 0) & Choices(0, 1) & Choices(0, 2) & Choices(0, 3) & vbCrLf &
@@ -62,7 +59,7 @@ Public Class Task
 
         ElseIf ForcedTrial > 2 Then
             If Trial = 1 Then
-                If sender.Text = "8 ml ahora" Then
+                If sender.Text = "16 s ahora" Then
                     If ActiveDelay = 5000 Then Choices(0, 0) = False
                     If ActiveDelay = 15000 Then Choices(1, 0) = False
                     If ActiveDelay = 30000 Then Choices(2, 0) = False
@@ -83,7 +80,7 @@ Public Class Task
                     Delay()
                 End If
             ElseIf Trial = 2 Then
-                If sender.Text = "4 ml ahora" Or sender.Text = "12 ml ahora" Then
+                If sender.Text = "8 s ahora" Or sender.Text = "24 s ahora" Then
                     If ActiveDelay = 5000 Then Choices(0, 1) = False
                     If ActiveDelay = 15000 Then Choices(1, 1) = False
                     If ActiveDelay = 30000 Then Choices(2, 1) = False
@@ -104,7 +101,7 @@ Public Class Task
                     Delay()
                 End If
             ElseIf Trial = 3 Then
-                If sender.Text = "2 ml ahora" Or sender.Text = "6 ml ahora" Or sender.Text = "10 ml ahora" Or sender.Text = "14 ml ahora" Then
+                If sender.Text = "4 s ahora" Or sender.Text = "12 s ahora" Or sender.Text = "20 s ahora" Or sender.Text = "28 s ahora" Then
                     If ActiveDelay = 5000 Then Choices(0, 2) = False
                     If ActiveDelay = 15000 Then Choices(1, 2) = False
                     If ActiveDelay = 30000 Then Choices(2, 2) = False
@@ -125,7 +122,7 @@ Public Class Task
                     Delay()
                 End If
             ElseIf Trial = 4 Then
-                If sender.Text = "8 ml ahora" Then
+                If sender.Text = "16 s ahora" Then
                     If ActiveDelay = 5000 Then Choices(0, 3) = False
                     If ActiveDelay = 15000 Then Choices(1, 3) = False
                     If ActiveDelay = 30000 Then Choices(2, 3) = False
@@ -146,6 +143,8 @@ Public Class Task
                     Delay()
                 End If
             End If
+            Dim u As String = sender.text
+            currentRef = CByte(u.Substring(0, 2))
         Else
 
         End If
@@ -174,73 +173,38 @@ Public Class Task
         ElseIf ForcedTrial = 1 Then
             ForcedTrial += 1
             Reinforce(Ref)
-            tmrRestart.Interval = 85000
+            tmrRestart.Interval = 79000 'El ref de ensayo forzado dura 16s
             tmrRestart.Enabled = True
         ElseIf ForcedTrial = 2 Then
             ForcedTrial += 1
             Reinforce(Ref)
-            tmrRestart.Interval = 65000
+            tmrRestart.Interval = 43000 'Espero 20 s y luego vio video por 32s
             tmrRestart.Enabled = True
         ElseIf ForcedTrial = 3 Then
-
-
-
-
-            'If vPhase = 2 Or vPhase = 3 Then
-            '    If ForcedTrial < 2 Then ''''''''''''''''''''''''''''''''''''''''''''''''''
-            '        ForcedTrial += 1
-            '        Reinforce(Ref)
-            '        If blnWaited = False Then
-
-            '        ElseIf blnWaited = True Then
-            '            blnWaited = False
-            '            tmrRestart.Interval = 15000
-            '            tmrRestart.Enabled = True
-            '            'Exit Sub
-            '        End If
-            '        'If ForcedTrial = 2 And Trial = 0 Then Trial += 1 ''''''''''''''''
-            '    Else
-            '        ForcedTrial = 3
-            '    End If
-            'End If
-
-            'If ForcedTrial = 4 Then
-
-            'If Trial = 0 Then
-            '        WriteLine(1, vTimeNow, 0)
-            '        Trial += 1
-            '        ReloadTask()
-            '    Else
             If vPhase <> 1 Then
                 Reinforce(Ref)
                 If blnWaited = False Then
                     tmrRestart.Enabled = True
                 ElseIf blnWaited = True Then
                     blnWaited = False
-                    tmrRestart.Interval = (85000 - tmrDelay.Interval)
+                    tmrRestart.Interval = (95000 - tmrDelay.Interval - currentRef * 1000)
                     tmrRestart.Enabled = True
                 End If
             ElseIf vPhase = 1 Then
                 ReloadTask()
             End If
         End If
-        'End If
 
     End Sub
     Private Sub btnRef_Click(sender As Object, e As EventArgs) Handles btnRef.Click
         BtnRef_()
     End Sub
     Private Sub Reinforce(x)
-        Dim y
-        If x = 2 Then y = 1
-        If x = 4 Then y = 2
-        If x = 6 Then y = 3
-        If x = 8 Then y = 4
-        If x = 10 Then y = 5
-        If x = 12 Then y = 6
-        If x = 14 Then y = 7
-        If x = 16 Then y = 8
-        Arduino.WriteLine(y)
+        tmrVideoPlay.Interval = x * 1000
+        AxWindowsMediaPlayer1.Visible = True
+        AxWindowsMediaPlayer1.uiMode = "none"
+        AxWindowsMediaPlayer1.Ctlcontrols.play()
+        tmrVideoPlay.Enabled = True
         WriteLine(1, vTimeNow, x)
     End Sub
     Private Sub tmrRestart_Tick(sender As Object, e As EventArgs) Handles tmrRestart.Tick
@@ -253,13 +217,13 @@ Public Class Task
         ReloadTask()
     End Sub
     Private Sub FTrial()
-        btnRef.Text = "Servir"
+        btnRef.Text = "Ver"
         lblPrefieres.Text = "¿Qué prefieres?"
         lblPrefieres.Visible = True
         btnIzquierda.Visible = True
         btnDerecha.Visible = True
-        btnIzquierda.Text = "8 ml ahora"
-        btnDerecha.Text = "16 ml en 20 segundos"
+        btnIzquierda.Text = "16 s ahora"
+        btnDerecha.Text = "32 s en 20 segundos"
     End Sub
     Private Sub ReloadTask()
         If ForcedTrial = 1 Then
@@ -275,7 +239,7 @@ Public Class Task
             btnDerecha.Enabled = True
             btnIzquierda.Visible = True
             btnDerecha.Visible = True
-            btnRef.Text = "Servir"
+            btnRef.Text = "Ver"
             lblPrefieres.Text = "¿Qué prefieres?"
             lblPrefieres.Visible = True
             btnIzquierda.Visible = True
@@ -290,7 +254,7 @@ Public Class Task
             ActiveDelay = Delays(y)
             Delays.RemoveAt(y)
             tmrDelay.Interval = ActiveDelay
-            tmrRestart.Interval = 85000
+            tmrRestart.Interval = 95000
             ProgressBar1.Maximum = ActiveDelay
             If vPhase = 1 Then tmrRestart.Interval = 1
             If TaskCount >= 4 Then '''''''''''''''''''''''''''''''''''''''
@@ -306,45 +270,45 @@ Public Class Task
                 End If
             End If
             If Trial = 1 Then
-                LoadChoices("8 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
+                LoadChoices("16 s ahora", "32 s en " & CStr(ActiveDelay / 1000) & " segundos")
             ElseIf Trial = 2 Then
                 If ActiveDelay = 5000 Then
-                    If Choices(0, 0) = False Then LoadChoices("4 ml ahora", "16 ml en 5 segundos")
-                    If Choices(0, 0) = True Then LoadChoices("12 ml ahora", "16 ml en 5 segundos")
+                    If Choices(0, 0) = False Then LoadChoices("8 s ahora", "32 s en 5 segundos")
+                    If Choices(0, 0) = True Then LoadChoices("24 s ahora", "32 s en 5 segundos")
                 ElseIf ActiveDelay = 15000 Then
-                    If Choices(1, 0) = False Then LoadChoices("4 ml ahora", "16 ml en 15 segundos")
-                    If Choices(1, 0) = True Then LoadChoices("12 ml ahora", "16 ml en 15 segundos")
+                    If Choices(1, 0) = False Then LoadChoices("8 s ahora", "32 s en 15 segundos")
+                    If Choices(1, 0) = True Then LoadChoices("24 s ahora", "32 s en 15 segundos")
                 ElseIf ActiveDelay = 30000 Then
-                    If Choices(2, 0) = False Then LoadChoices("4 ml ahora", "16 ml en 30 segundos")
-                    If Choices(2, 0) = True Then LoadChoices("12 ml ahora", "16 ml en 30 segundos")
+                    If Choices(2, 0) = False Then LoadChoices("8 s ahora", "32 s en 30 segundos")
+                    If Choices(2, 0) = True Then LoadChoices("24 s ahora", "32 s en 30 segundos")
                 ElseIf ActiveDelay = 60000 Then
-                    If Choices(3, 0) = False Then LoadChoices("4 ml ahora", "16 ml en 60 segundos")
-                    If Choices(3, 0) = True Then LoadChoices("12 ml ahora", "16 ml en 60 segundos")
+                    If Choices(3, 0) = False Then LoadChoices("8 s ahora", "32 s en 60 segundos")
+                    If Choices(3, 0) = True Then LoadChoices("24 s ahora", "32 s en 60 segundos")
                 End If
             ElseIf Trial = 3 Then
                 If ActiveDelay = 5000 Then
-                    If Choices(0, 0) = False And Choices(0, 1) = False Then LoadChoices("2 ml ahora", "16 ml en 5 segundos")
-                    If Choices(0, 0) = False And Choices(0, 1) = True Then LoadChoices("6 ml ahora", "16 ml en 5 segundos")
-                    If Choices(0, 0) = True And Choices(0, 1) = False Then LoadChoices("10 ml ahora", "16 ml en 5 segundos")
-                    If Choices(0, 0) = True And Choices(0, 1) = True Then LoadChoices("14 ml ahora", "16 ml en 5 segundos")
+                    If Choices(0, 0) = False And Choices(0, 1) = False Then LoadChoices("4 s ahora", "32 s en 5 segundos")
+                    If Choices(0, 0) = False And Choices(0, 1) = True Then LoadChoices("12 s ahora", "32 s en 5 segundos")
+                    If Choices(0, 0) = True And Choices(0, 1) = False Then LoadChoices("20 s ahora", "32 s en 5 segundos")
+                    If Choices(0, 0) = True And Choices(0, 1) = True Then LoadChoices("28 s ahora", "32 s en 5 segundos")
                 ElseIf ActiveDelay = 15000 Then
-                    If Choices(1, 0) = False And Choices(1, 1) = False Then LoadChoices("2 ml ahora", "16 ml en 15 segundos")
-                    If Choices(1, 0) = False And Choices(1, 1) = True Then LoadChoices("6 ml ahora", "16 ml en 15 segundos")
-                    If Choices(1, 0) = True And Choices(1, 1) = False Then LoadChoices("10 ml ahora", "16 ml en 15 segundos")
-                    If Choices(1, 0) = True And Choices(1, 1) = True Then LoadChoices("14 ml ahora", "16 ml en 15 segundos")
+                    If Choices(1, 0) = False And Choices(1, 1) = False Then LoadChoices("4 s ahora", "32 s en 15 segundos")
+                    If Choices(1, 0) = False And Choices(1, 1) = True Then LoadChoices("12 s ahora", "32 s en 15 segundos")
+                    If Choices(1, 0) = True And Choices(1, 1) = False Then LoadChoices("20 s ahora", "32 s en 15 segundos")
+                    If Choices(1, 0) = True And Choices(1, 1) = True Then LoadChoices("28 s ahora", "32 s en 15 segundos")
                 ElseIf ActiveDelay = 30000 Then
-                    If Choices(2, 0) = False And Choices(2, 1) = False Then LoadChoices("2 ml ahora", "16 ml en 30 segundos")
-                    If Choices(2, 0) = False And Choices(2, 1) = True Then LoadChoices("6 ml ahora", "16 ml en 30 segundos")
-                    If Choices(2, 0) = True And Choices(2, 1) = False Then LoadChoices("10 ml ahora", "16 ml en 30 segundos")
-                    If Choices(2, 0) = True And Choices(2, 1) = True Then LoadChoices("14 ml ahora", "16 ml en 30 segundos")
+                    If Choices(2, 0) = False And Choices(2, 1) = False Then LoadChoices("4 s ahora", "32 s en 30 segundos")
+                    If Choices(2, 0) = False And Choices(2, 1) = True Then LoadChoices("12 s ahora", "32 s en 30 segundos")
+                    If Choices(2, 0) = True And Choices(2, 1) = False Then LoadChoices("20 s ahora", "32 s en 30 segundos")
+                    If Choices(2, 0) = True And Choices(2, 1) = True Then LoadChoices("28 s ahora", "32 s en 30 segundos")
                 ElseIf ActiveDelay = 60000 Then
-                    If Choices(3, 0) = False And Choices(3, 1) = False Then LoadChoices("2 ml ahora", "16 ml en 60 segundos")
-                    If Choices(3, 0) = False And Choices(3, 1) = True Then LoadChoices("6 ml ahora", "16 ml en 60 segundos")
-                    If Choices(3, 0) = True And Choices(3, 1) = False Then LoadChoices("10 ml ahora", "16 ml en 60 segundos")
-                    If Choices(3, 0) = True And Choices(3, 1) = True Then LoadChoices("14 ml ahora", "16 ml en 60 segundos")
+                    If Choices(3, 0) = False And Choices(3, 1) = False Then LoadChoices("4 s ahora", "32 s en 60 segundos")
+                    If Choices(3, 0) = False And Choices(3, 1) = True Then LoadChoices("12 s ahora", "32 s en 60 segundos")
+                    If Choices(3, 0) = True And Choices(3, 1) = False Then LoadChoices("20 s ahora", "32 s en 60 segundos")
+                    If Choices(3, 0) = True And Choices(3, 1) = True Then LoadChoices("28 s ahora", "32 s en 60 segundos")
                 End If
             ElseIf Trial = 4 Then
-                LoadChoices("8 ml ahora", "16 ml en " & CStr(ActiveDelay / 1000) & " segundos")
+                LoadChoices("16 s ahora", "32 s en " & CStr(ActiveDelay / 1000) & " segundos")
             End If
         End If
     End Sub
@@ -462,7 +426,17 @@ Public Class Task
         Next
     End Sub
 
+    Private Sub tmrVideoPlay_Tick(sender As Object, e As EventArgs) Handles tmrVideoPlay.Tick
+        tmrVideoPlay.Enabled = False
+        AxWindowsMediaPlayer1.Ctlcontrols.pause()
+        AxWindowsMediaPlayer1.Visible = False
+    End Sub
 
+    Private Sub Task_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AxWindowsMediaPlayer1.URL = "C:\Data\testvideo.mp4"
+        AxWindowsMediaPlayer1.Ctlcontrols.stop()
+
+    End Sub
 
     Private Sub SpawnFood()
         Randomize()

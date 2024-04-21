@@ -21,4 +21,5 @@ Module Module1
     Public Arduino As SerialPort
     Public Snaek As New Snake
     Public ForcedTrial As Byte = 0
+    Public currentRef As Byte
 End Module
