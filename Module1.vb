@@ -1,6 +1,7 @@
 ﻿Imports System.IO.Ports
 
 Module Module1
+
     Public blnStarting = True
     Public Arduinobln As Boolean = False
     Public PuntajeFiller As Integer = 0
@@ -10,7 +11,7 @@ Module Module1
     Public Trial As Integer = 0
     Public blnWaited As Boolean = False
     Public Ref As Integer = 0
-    Public Delays As New List(Of Integer)({5000, 15000, 30000, 60000})
+    Public Delays As List(Of Integer)
     Public Choices(3, 3) As Boolean
     Public vPhase As Integer = 0
     Public vTimeStart As Integer = 0

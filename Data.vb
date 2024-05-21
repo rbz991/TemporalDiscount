@@ -8,6 +8,14 @@ Public Class Data
             Label1.Visible = False
             Label2.Visible = False
             Label3.Visible = False
+            Label4.Visible = False
+            Label8.Visible = False
+            txbDelay1.Visible = False
+            txbDelay2.Visible = False
+            txbDelay3.Visible = False
+            txbDelay4.Visible = False
+            txbEnsayoDur.Visible = False
+            Delays = New List(Of Integer)({txbDelay1.Text, txbDelay2.Text, txbDelay3.Text, txbDelay4.Text})
             txbParticipante.Visible = False
             txbCOM.Visible = False
             txbSesion.Visible = False

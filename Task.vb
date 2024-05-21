@@ -60,10 +60,10 @@ Public Class Task
         ElseIf ForcedTrial > 2 Then
             If Trial = 1 Then
                 If sender.Text = "16 s ahora" Then
-                    If ActiveDelay = 5000 Then Choices(0, 0) = False
-                    If ActiveDelay = 15000 Then Choices(1, 0) = False
-                    If ActiveDelay = 30000 Then Choices(2, 0) = False
-                    If ActiveDelay = 60000 Then Choices(3, 0) = False
+                    If ActiveDelay = Data.txbDelay1.Text Then Choices(0, 0) = False
+                    If ActiveDelay = Data.txbDelay2.Text Then Choices(1, 0) = False
+                    If ActiveDelay = Data.txbDelay3.Text Then Choices(2, 0) = False
+                    If ActiveDelay = Data.txbDelay4.Text Then Choices(3, 0) = False
                     WriteLine(1, vTimeNow, sender.Text, "Demora: " & ActiveDelay)
                     If vPhase <> 1 Then
                         btnRef.Visible = True
@@ -72,19 +72,19 @@ Public Class Task
                     End If
                 Else
                     blnWaited = True
-                    If ActiveDelay = 5000 Then Choices(0, 0) = True
-                    If ActiveDelay = 15000 Then Choices(1, 0) = True
-                    If ActiveDelay = 30000 Then Choices(2, 0) = True
-                    If ActiveDelay = 60000 Then Choices(3, 0) = True
+                    If ActiveDelay = Data.txbDelay1.Text Then Choices(0, 0) = True
+                    If ActiveDelay = Data.txbDelay2.Text Then Choices(1, 0) = True
+                    If ActiveDelay = Data.txbDelay3.Text Then Choices(2, 0) = True
+                    If ActiveDelay = Data.txbDelay4.Text Then Choices(3, 0) = True
                     WriteLine(1, vTimeNow, sender.Text)
                     Delay()
                 End If
             ElseIf Trial = 2 Then
                 If sender.Text = "8 s ahora" Or sender.Text = "24 s ahora" Then
-                    If ActiveDelay = 5000 Then Choices(0, 1) = False
-                    If ActiveDelay = 15000 Then Choices(1, 1) = False
-                    If ActiveDelay = 30000 Then Choices(2, 1) = False
-                    If ActiveDelay = 60000 Then Choices(3, 1) = False
+                    If ActiveDelay = Data.txbDelay1.Text Then Choices(0, 1) = False
+                    If ActiveDelay = Data.txbDelay2.Text Then Choices(1, 1) = False
+                    If ActiveDelay = Data.txbDelay3.Text Then Choices(2, 1) = False
+                    If ActiveDelay = Data.txbDelay4.Text Then Choices(3, 1) = False
                     WriteLine(1, vTimeNow, sender.Text, "Demora: " & ActiveDelay)
                     If vPhase <> 1 Then
                         btnRef.Visible = True
@@ -93,19 +93,19 @@ Public Class Task
                     End If
                 Else
                     blnWaited = True
-                    If ActiveDelay = 5000 Then Choices(0, 1) = True
-                    If ActiveDelay = 15000 Then Choices(1, 1) = True
-                    If ActiveDelay = 30000 Then Choices(2, 1) = True
-                    If ActiveDelay = 60000 Then Choices(3, 1) = True
+                    If ActiveDelay = Data.txbDelay1.Text Then Choices(0, 1) = True
+                    If ActiveDelay = Data.txbDelay2.Text Then Choices(1, 1) = True
+                    If ActiveDelay = Data.txbDelay3.Text Then Choices(2, 1) = True
+                    If ActiveDelay = Data.txbDelay4.Text Then Choices(3, 1) = True
                     WriteLine(1, vTimeNow, sender.Text)
                     Delay()
                 End If
             ElseIf Trial = 3 Then
                 If sender.Text = "4 s ahora" Or sender.Text = "12 s ahora" Or sender.Text = "20 s ahora" Or sender.Text = "28 s ahora" Then
-                    If ActiveDelay = 5000 Then Choices(0, 2) = False
-                    If ActiveDelay = 15000 Then Choices(1, 2) = False
-                    If ActiveDelay = 30000 Then Choices(2, 2) = False
-                    If ActiveDelay = 60000 Then Choices(3, 2) = False
+                    If ActiveDelay = Data.txbDelay1.Text Then Choices(0, 2) = False
+                    If ActiveDelay = Data.txbDelay2.Text Then Choices(1, 2) = False
+                    If ActiveDelay = Data.txbDelay3.Text Then Choices(2, 2) = False
+                    If ActiveDelay = Data.txbDelay4.Text Then Choices(3, 2) = False
                     WriteLine(1, vTimeNow, sender.Text, "Demora: " & ActiveDelay)
                     If vPhase <> 1 Then
                         btnRef.Visible = True
@@ -114,19 +114,19 @@ Public Class Task
                     End If
                 Else
                     blnWaited = True
-                    If ActiveDelay = 5000 Then Choices(0, 2) = True
-                    If ActiveDelay = 15000 Then Choices(1, 2) = True
-                    If ActiveDelay = 30000 Then Choices(2, 2) = True
-                    If ActiveDelay = 60000 Then Choices(3, 2) = True
+                    If ActiveDelay = Data.txbDelay1.Text Then Choices(0, 2) = True
+                    If ActiveDelay = Data.txbDelay2.Text Then Choices(1, 2) = True
+                    If ActiveDelay = Data.txbDelay3.Text Then Choices(2, 2) = True
+                    If ActiveDelay = Data.txbDelay4.Text Then Choices(3, 2) = True
                     WriteLine(1, vTimeNow, sender.Text)
                     Delay()
                 End If
             ElseIf Trial = 4 Then
                 If sender.Text = "16 s ahora" Then
-                    If ActiveDelay = 5000 Then Choices(0, 3) = False
-                    If ActiveDelay = 15000 Then Choices(1, 3) = False
-                    If ActiveDelay = 30000 Then Choices(2, 3) = False
-                    If ActiveDelay = 60000 Then Choices(3, 3) = False
+                    If ActiveDelay = Data.txbDelay1.Text Then Choices(0, 3) = False
+                    If ActiveDelay = Data.txbDelay2.Text Then Choices(1, 3) = False
+                    If ActiveDelay = Data.txbDelay3.Text Then Choices(2, 3) = False
+                    If ActiveDelay = Data.txbDelay4.Text Then Choices(3, 3) = False
                     WriteLine(1, vTimeNow, sender.Text, "Demora: " & ActiveDelay)
                     If vPhase <> 1 Then
                         btnRef.Visible = True
@@ -135,10 +135,10 @@ Public Class Task
                     End If
                 Else
                     blnWaited = True
-                    If ActiveDelay = 5000 Then Choices(0, 3) = True
-                    If ActiveDelay = 15000 Then Choices(1, 3) = True
-                    If ActiveDelay = 30000 Then Choices(2, 3) = True
-                    If ActiveDelay = 60000 Then Choices(3, 3) = True
+                    If ActiveDelay = Data.txbDelay1.Text Then Choices(0, 3) = True
+                    If ActiveDelay = Data.txbDelay2.Text Then Choices(1, 3) = True
+                    If ActiveDelay = Data.txbDelay3.Text Then Choices(2, 3) = True
+                    If ActiveDelay = Data.txbDelay4.Text Then Choices(3, 3) = True
                     WriteLine(1, vTimeNow, sender.Text)
                     Delay()
                 End If
@@ -173,12 +173,12 @@ Public Class Task
         ElseIf ForcedTrial = 1 Then
             ForcedTrial += 1
             Reinforce(Ref)
-            tmrRestart.Interval = 79000 'El ref de ensayo forzado dura 16s
+            tmrRestart.Interval = Data.txbEnsayoDur.Text - 16000 'El ref de ensayo forzado dura 16s
             tmrRestart.Enabled = True
         ElseIf ForcedTrial = 2 Then
             ForcedTrial += 1
             Reinforce(Ref)
-            tmrRestart.Interval = 43000 'Espero 20 s y luego vio video por 32s
+            tmrRestart.Interval = Data.txbEnsayoDur.Text - 52000 'Espero 20 s y luego vio video por 32s
             tmrRestart.Enabled = True
         ElseIf ForcedTrial = 3 Then
             If vPhase <> 1 Then
@@ -187,7 +187,7 @@ Public Class Task
                     tmrRestart.Enabled = True
                 ElseIf blnWaited = True Then
                     blnWaited = False
-                    tmrRestart.Interval = (95000 - tmrDelay.Interval - currentRef * 1000)
+                    tmrRestart.Interval = (Data.txbEnsayoDur.Text - tmrDelay.Interval - currentRef * 1000)
                     tmrRestart.Enabled = True
                 End If
             ElseIf vPhase = 1 Then
@@ -245,16 +245,16 @@ Public Class Task
             btnIzquierda.Visible = True
             btnDerecha.Visible = True
             If Delays.Count = 0 Then
-                Delays.Add(5000)
-                Delays.Add(15000)
-                Delays.Add(30000)
-                Delays.Add(60000)
+                Delays.Add(Data.txbDelay1.Text)
+                Delays.Add(Data.txbDelay2.Text)
+                Delays.Add(Data.txbDelay3.Text)
+                Delays.Add(Data.txbDelay4.Text)
             End If
             Dim y As Integer = Rand.Next(Delays.Count)
             ActiveDelay = Delays(y)
             Delays.RemoveAt(y)
             tmrDelay.Interval = ActiveDelay
-            tmrRestart.Interval = 95000
+            tmrRestart.Interval = Data.txbEnsayoDur.Text
             ProgressBar1.Maximum = ActiveDelay
             If vPhase = 1 Then tmrRestart.Interval = 1
             If TaskCount >= 4 Then '''''''''''''''''''''''''''''''''''''''
@@ -272,40 +272,40 @@ Public Class Task
             If Trial = 1 Then
                 LoadChoices("16 s ahora", "32 s en " & CStr(ActiveDelay / 1000) & " segundos")
             ElseIf Trial = 2 Then
-                If ActiveDelay = 5000 Then
-                    If Choices(0, 0) = False Then LoadChoices("8 s ahora", "32 s en 5 segundos")
-                    If Choices(0, 0) = True Then LoadChoices("24 s ahora", "32 s en 5 segundos")
-                ElseIf ActiveDelay = 15000 Then
-                    If Choices(1, 0) = False Then LoadChoices("8 s ahora", "32 s en 15 segundos")
-                    If Choices(1, 0) = True Then LoadChoices("24 s ahora", "32 s en 15 segundos")
-                ElseIf ActiveDelay = 30000 Then
-                    If Choices(2, 0) = False Then LoadChoices("8 s ahora", "32 s en 30 segundos")
-                    If Choices(2, 0) = True Then LoadChoices("24 s ahora", "32 s en 30 segundos")
-                ElseIf ActiveDelay = 60000 Then
-                    If Choices(3, 0) = False Then LoadChoices("8 s ahora", "32 s en 60 segundos")
-                    If Choices(3, 0) = True Then LoadChoices("24 s ahora", "32 s en 60 segundos")
+                If ActiveDelay = Data.txbDelay1.Text Then
+                    If Choices(0, 0) = False Then LoadChoices("8 s ahora", "32 s en " & Data.txbDelay1.Text / 1000 & " segundos")
+                    If Choices(0, 0) = True Then LoadChoices("24 s ahora", "32 s en " & Data.txbDelay1.Text / 1000 & " segundos")
+                ElseIf ActiveDelay = Data.txbDelay2.Text Then
+                    If Choices(1, 0) = False Then LoadChoices("8 s ahora", "32 s en " & Data.txbDelay2.Text / 1000 & " segundos")
+                    If Choices(1, 0) = True Then LoadChoices("24 s ahora", "32 s en " & Data.txbDelay2.Text / 1000 & " segundos")
+                ElseIf ActiveDelay = Data.txbDelay3.Text Then
+                    If Choices(2, 0) = False Then LoadChoices("8 s ahora", "32 s en " & Data.txbDelay3.Text / 1000 & " segundos")
+                    If Choices(2, 0) = True Then LoadChoices("24 s ahora", "32 s en " & Data.txbDelay3.Text / 1000 & " segundos")
+                ElseIf ActiveDelay = Data.txbDelay4.Text Then
+                    If Choices(3, 0) = False Then LoadChoices("8 s ahora", "32 s en " & Data.txbDelay4.Text / 1000 & " segundos")
+                    If Choices(3, 0) = True Then LoadChoices("24 s ahora", "32 s en " & Data.txbDelay4.Text / 1000 & " segundos")
                 End If
             ElseIf Trial = 3 Then
-                If ActiveDelay = 5000 Then
-                    If Choices(0, 0) = False And Choices(0, 1) = False Then LoadChoices("4 s ahora", "32 s en 5 segundos")
-                    If Choices(0, 0) = False And Choices(0, 1) = True Then LoadChoices("12 s ahora", "32 s en 5 segundos")
-                    If Choices(0, 0) = True And Choices(0, 1) = False Then LoadChoices("20 s ahora", "32 s en 5 segundos")
-                    If Choices(0, 0) = True And Choices(0, 1) = True Then LoadChoices("28 s ahora", "32 s en 5 segundos")
-                ElseIf ActiveDelay = 15000 Then
-                    If Choices(1, 0) = False And Choices(1, 1) = False Then LoadChoices("4 s ahora", "32 s en 15 segundos")
-                    If Choices(1, 0) = False And Choices(1, 1) = True Then LoadChoices("12 s ahora", "32 s en 15 segundos")
-                    If Choices(1, 0) = True And Choices(1, 1) = False Then LoadChoices("20 s ahora", "32 s en 15 segundos")
-                    If Choices(1, 0) = True And Choices(1, 1) = True Then LoadChoices("28 s ahora", "32 s en 15 segundos")
-                ElseIf ActiveDelay = 30000 Then
-                    If Choices(2, 0) = False And Choices(2, 1) = False Then LoadChoices("4 s ahora", "32 s en 30 segundos")
-                    If Choices(2, 0) = False And Choices(2, 1) = True Then LoadChoices("12 s ahora", "32 s en 30 segundos")
-                    If Choices(2, 0) = True And Choices(2, 1) = False Then LoadChoices("20 s ahora", "32 s en 30 segundos")
-                    If Choices(2, 0) = True And Choices(2, 1) = True Then LoadChoices("28 s ahora", "32 s en 30 segundos")
-                ElseIf ActiveDelay = 60000 Then
-                    If Choices(3, 0) = False And Choices(3, 1) = False Then LoadChoices("4 s ahora", "32 s en 60 segundos")
-                    If Choices(3, 0) = False And Choices(3, 1) = True Then LoadChoices("12 s ahora", "32 s en 60 segundos")
-                    If Choices(3, 0) = True And Choices(3, 1) = False Then LoadChoices("20 s ahora", "32 s en 60 segundos")
-                    If Choices(3, 0) = True And Choices(3, 1) = True Then LoadChoices("28 s ahora", "32 s en 60 segundos")
+                If ActiveDelay = Data.txbDelay1.Text Then
+                    If Choices(0, 0) = False And Choices(0, 1) = False Then LoadChoices("4 s ahora", "32 s en " & Data.txbDelay1.Text / 1000 & " segundos")
+                    If Choices(0, 0) = False And Choices(0, 1) = True Then LoadChoices("12 s ahora", "32 s en " & Data.txbDelay1.Text / 1000 & " segundos")
+                    If Choices(0, 0) = True And Choices(0, 1) = False Then LoadChoices("20 s ahora", "32 s en " & Data.txbDelay1.Text / 1000 & " segundos")
+                    If Choices(0, 0) = True And Choices(0, 1) = True Then LoadChoices("28 s ahora", "32 s en " & Data.txbDelay1.Text / 1000 & " segundos")
+                ElseIf ActiveDelay = Data.txbDelay2.Text Then
+                    If Choices(1, 0) = False And Choices(1, 1) = False Then LoadChoices("4 s ahora", "32 s en " & Data.txbDelay2.Text / 1000 & " segundos")
+                    If Choices(1, 0) = False And Choices(1, 1) = True Then LoadChoices("12 s ahora", "32 s en " & Data.txbDelay2.Text / 1000 & " segundos")
+                    If Choices(1, 0) = True And Choices(1, 1) = False Then LoadChoices("20 s ahora", "32 s en " & Data.txbDelay2.Text / 1000 & " segundos")
+                    If Choices(1, 0) = True And Choices(1, 1) = True Then LoadChoices("28 s ahora", "32 s en " & Data.txbDelay2.Text / 1000 & " segundos")
+                ElseIf ActiveDelay = Data.txbDelay3.Text Then
+                    If Choices(2, 0) = False And Choices(2, 1) = False Then LoadChoices("4 s ahora", "32 s en " & Data.txbDelay3.Text / 1000 & " segundos")
+                    If Choices(2, 0) = False And Choices(2, 1) = True Then LoadChoices("12 s ahora", "32 s en " & Data.txbDelay3.Text / 1000 & " segundos")
+                    If Choices(2, 0) = True And Choices(2, 1) = False Then LoadChoices("20 s ahora", "32 s en " & Data.txbDelay3.Text / 1000 & " segundos")
+                    If Choices(2, 0) = True And Choices(2, 1) = True Then LoadChoices("28 s ahora", "32 s en " & Data.txbDelay3.Text / 1000 & " segundos")
+                ElseIf ActiveDelay = Data.txbDelay4.Text Then
+                    If Choices(3, 0) = False And Choices(3, 1) = False Then LoadChoices("4 s ahora", "32 s en " & Data.txbDelay4.Text / 1000 & " segundos")
+                    If Choices(3, 0) = False And Choices(3, 1) = True Then LoadChoices("12 s ahora", "32 s en " & Data.txbDelay4.Text / 1000 & " segundos")
+                    If Choices(3, 0) = True And Choices(3, 1) = False Then LoadChoices("20 s ahora", "32 s en " & Data.txbDelay4.Text / 1000 & " segundos")
+                    If Choices(3, 0) = True And Choices(3, 1) = True Then LoadChoices("28 s ahora", "32 s en " & Data.txbDelay4.Text / 1000 & " segundos")
                 End If
             ElseIf Trial = 4 Then
                 LoadChoices("16 s ahora", "32 s en " & CStr(ActiveDelay / 1000) & " segundos")
@@ -381,6 +381,7 @@ Public Class Task
         If e.KeyCode = Keys.Left And MovAnt <> 1 Then Mov = 2
         If e.KeyCode = Keys.Down And MovAnt <> 4 Then Mov = 3
         If e.KeyCode = Keys.Up And MovAnt <> 3 Then Mov = 4
+        WriteLine(1, Mov)
         MovAnt = Mov
     End Sub
     Private Sub tmrSnake_Tick(sender As Object, e As EventArgs) Handles tmrSnake.Tick
