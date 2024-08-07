@@ -222,8 +222,8 @@ Public Class Task
         lblPrefieres.Visible = True
         btnIzquierda.Visible = True
         btnDerecha.Visible = True
-        btnIzquierda.Text = "16 s ahora"
-        btnDerecha.Text = "32 s en 20 segundos"
+        btnIzquierda.Text = "16 segundos de video ahora"
+        btnDerecha.Text = "32 segundos de video en 20 segundos"
     End Sub
     Private Sub ReloadTask()
         If ForcedTrial = 1 Then
@@ -270,45 +270,45 @@ Public Class Task
                 End If
             End If
             If Trial = 1 Then
-                LoadChoices("16 s ahora", "32 s en " & CStr(ActiveDelay / 1000) & " segundos")
+                LoadChoices("16 segundos de video ahora", "32 segundos de video en " & CStr(ActiveDelay / 1000) & " segundos")
             ElseIf Trial = 2 Then
                 If ActiveDelay = Data.txbDelay1.Text Then
-                    If Choices(0, 0) = False Then LoadChoices("8 s ahora", "32 s en " & Data.txbDelay1.Text / 1000 & " segundos")
-                    If Choices(0, 0) = True Then LoadChoices("24 s ahora", "32 s en " & Data.txbDelay1.Text / 1000 & " segundos")
+                    If Choices(0, 0) = False Then LoadChoices("8 segundos de video ahora", "32 segundos de video en " & Data.txbDelay1.Text / 1000 & " segundos")
+                    If Choices(0, 0) = True Then LoadChoices("24 segundos de video ahora", "32 segundos de video en " & Data.txbDelay1.Text / 1000 & " segundos")
                 ElseIf ActiveDelay = Data.txbDelay2.Text Then
-                    If Choices(1, 0) = False Then LoadChoices("8 s ahora", "32 s en " & Data.txbDelay2.Text / 1000 & " segundos")
-                    If Choices(1, 0) = True Then LoadChoices("24 s ahora", "32 s en " & Data.txbDelay2.Text / 1000 & " segundos")
+                    If Choices(1, 0) = False Then LoadChoices("8 segundos de video ahora", "32 segundos de video en " & Data.txbDelay2.Text / 1000 & " segundos")
+                    If Choices(1, 0) = True Then LoadChoices("24 segundos de video ahora", "32 segundos de video en " & Data.txbDelay2.Text / 1000 & " segundos")
                 ElseIf ActiveDelay = Data.txbDelay3.Text Then
-                    If Choices(2, 0) = False Then LoadChoices("8 s ahora", "32 s en " & Data.txbDelay3.Text / 1000 & " segundos")
-                    If Choices(2, 0) = True Then LoadChoices("24 s ahora", "32 s en " & Data.txbDelay3.Text / 1000 & " segundos")
+                    If Choices(2, 0) = False Then LoadChoices("8 segundos de video ahora", "32 segundos de video en " & Data.txbDelay3.Text / 1000 & " segundos")
+                    If Choices(2, 0) = True Then LoadChoices("24 segundos de video ahora", "32 segundos de video en " & Data.txbDelay3.Text / 1000 & " segundos")
                 ElseIf ActiveDelay = Data.txbDelay4.Text Then
-                    If Choices(3, 0) = False Then LoadChoices("8 s ahora", "32 s en " & Data.txbDelay4.Text / 1000 & " segundos")
-                    If Choices(3, 0) = True Then LoadChoices("24 s ahora", "32 s en " & Data.txbDelay4.Text / 1000 & " segundos")
+                    If Choices(3, 0) = False Then LoadChoices("8 segundos de video ahora", "32 segundos de video en " & Data.txbDelay4.Text / 1000 & " segundos")
+                    If Choices(3, 0) = True Then LoadChoices("24 segundos de video ahora", "32 segundos de video en " & Data.txbDelay4.Text / 1000 & " segundos")
                 End If
             ElseIf Trial = 3 Then
                 If ActiveDelay = Data.txbDelay1.Text Then
-                    If Choices(0, 0) = False And Choices(0, 1) = False Then LoadChoices("4 s ahora", "32 s en " & Data.txbDelay1.Text / 1000 & " segundos")
-                    If Choices(0, 0) = False And Choices(0, 1) = True Then LoadChoices("12 s ahora", "32 s en " & Data.txbDelay1.Text / 1000 & " segundos")
-                    If Choices(0, 0) = True And Choices(0, 1) = False Then LoadChoices("20 s ahora", "32 s en " & Data.txbDelay1.Text / 1000 & " segundos")
-                    If Choices(0, 0) = True And Choices(0, 1) = True Then LoadChoices("28 s ahora", "32 s en " & Data.txbDelay1.Text / 1000 & " segundos")
+                    If Choices(0, 0) = False And Choices(0, 1) = False Then LoadChoices("4 segundos de video ahora", "32 segundos de video en " & Data.txbDelay1.Text / 1000 & " segundos")
+                    If Choices(0, 0) = False And Choices(0, 1) = True Then LoadChoices("12 segundos de video ahora", "32 segundos de video en " & Data.txbDelay1.Text / 1000 & " segundos")
+                    If Choices(0, 0) = True And Choices(0, 1) = False Then LoadChoices("20 segundos de video ahora", "32 segundos de video en " & Data.txbDelay1.Text / 1000 & " segundos")
+                    If Choices(0, 0) = True And Choices(0, 1) = True Then LoadChoices("28 segundos de video ahora", "32 segundos de video en " & Data.txbDelay1.Text / 1000 & " segundos")
                 ElseIf ActiveDelay = Data.txbDelay2.Text Then
-                    If Choices(1, 0) = False And Choices(1, 1) = False Then LoadChoices("4 s ahora", "32 s en " & Data.txbDelay2.Text / 1000 & " segundos")
-                    If Choices(1, 0) = False And Choices(1, 1) = True Then LoadChoices("12 s ahora", "32 s en " & Data.txbDelay2.Text / 1000 & " segundos")
-                    If Choices(1, 0) = True And Choices(1, 1) = False Then LoadChoices("20 s ahora", "32 s en " & Data.txbDelay2.Text / 1000 & " segundos")
-                    If Choices(1, 0) = True And Choices(1, 1) = True Then LoadChoices("28 s ahora", "32 s en " & Data.txbDelay2.Text / 1000 & " segundos")
+                    If Choices(1, 0) = False And Choices(1, 1) = False Then LoadChoices("4 segundos de video ahora", "32 segundos de video en " & Data.txbDelay2.Text / 1000 & " segundos")
+                    If Choices(1, 0) = False And Choices(1, 1) = True Then LoadChoices("12 segundos de video ahora", "32 segundos de video en " & Data.txbDelay2.Text / 1000 & " segundos")
+                    If Choices(1, 0) = True And Choices(1, 1) = False Then LoadChoices("20 segundos de video ahora", "32 segundos de video en " & Data.txbDelay2.Text / 1000 & " segundos")
+                    If Choices(1, 0) = True And Choices(1, 1) = True Then LoadChoices("28 segundos de video ahora", "32 segundos de video en " & Data.txbDelay2.Text / 1000 & " segundos")
                 ElseIf ActiveDelay = Data.txbDelay3.Text Then
-                    If Choices(2, 0) = False And Choices(2, 1) = False Then LoadChoices("4 s ahora", "32 s en " & Data.txbDelay3.Text / 1000 & " segundos")
-                    If Choices(2, 0) = False And Choices(2, 1) = True Then LoadChoices("12 s ahora", "32 s en " & Data.txbDelay3.Text / 1000 & " segundos")
-                    If Choices(2, 0) = True And Choices(2, 1) = False Then LoadChoices("20 s ahora", "32 s en " & Data.txbDelay3.Text / 1000 & " segundos")
-                    If Choices(2, 0) = True And Choices(2, 1) = True Then LoadChoices("28 s ahora", "32 s en " & Data.txbDelay3.Text / 1000 & " segundos")
+                    If Choices(2, 0) = False And Choices(2, 1) = False Then LoadChoices("4 segundos de video ahora", "32 segundos de video en " & Data.txbDelay3.Text / 1000 & " segundos")
+                    If Choices(2, 0) = False And Choices(2, 1) = True Then LoadChoices("12 segundos de video ahora", "32 segundos de video en " & Data.txbDelay3.Text / 1000 & " segundos")
+                    If Choices(2, 0) = True And Choices(2, 1) = False Then LoadChoices("20 segundos de video ahora", "32 segundos de video en " & Data.txbDelay3.Text / 1000 & " segundos")
+                    If Choices(2, 0) = True And Choices(2, 1) = True Then LoadChoices("28 segundos de video ahora", "32 segundos de video en " & Data.txbDelay3.Text / 1000 & " segundos")
                 ElseIf ActiveDelay = Data.txbDelay4.Text Then
-                    If Choices(3, 0) = False And Choices(3, 1) = False Then LoadChoices("4 s ahora", "32 s en " & Data.txbDelay4.Text / 1000 & " segundos")
-                    If Choices(3, 0) = False And Choices(3, 1) = True Then LoadChoices("12 s ahora", "32 s en " & Data.txbDelay4.Text / 1000 & " segundos")
-                    If Choices(3, 0) = True And Choices(3, 1) = False Then LoadChoices("20 s ahora", "32 s en " & Data.txbDelay4.Text / 1000 & " segundos")
-                    If Choices(3, 0) = True And Choices(3, 1) = True Then LoadChoices("28 s ahora", "32 s en " & Data.txbDelay4.Text / 1000 & " segundos")
+                    If Choices(3, 0) = False And Choices(3, 1) = False Then LoadChoices("4 segundos de video ahora", "32 segundos de video en " & Data.txbDelay4.Text / 1000 & " segundos")
+                    If Choices(3, 0) = False And Choices(3, 1) = True Then LoadChoices("12 segundos de video ahora", "32 segundos de video en " & Data.txbDelay4.Text / 1000 & " segundos")
+                    If Choices(3, 0) = True And Choices(3, 1) = False Then LoadChoices("20 segundos de video ahora", "32 segundos de video en " & Data.txbDelay4.Text / 1000 & " segundos")
+                    If Choices(3, 0) = True And Choices(3, 1) = True Then LoadChoices("28 segundos de video ahora", "32 segundos de video en " & Data.txbDelay4.Text / 1000 & " segundos")
                 End If
             ElseIf Trial = 4 Then
-                LoadChoices("16 s ahora", "32 s en " & CStr(ActiveDelay / 1000) & " segundos")
+                LoadChoices("16 segundos de video ahora", "32 segundos de video en " & CStr(ActiveDelay / 1000) & " segundos")
             End If
         End If
     End Sub
