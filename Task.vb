@@ -59,7 +59,7 @@ Public Class Task
 
         ElseIf ForcedTrial > 2 Then
             If Trial = 1 Then
-                If sender.Text = "16 s ahora" Then
+                If sender.Text = "16 segundos de video ahora" Then
                     If ActiveDelay = Data.txbDelay1.Text Then Choices(0, 0) = False
                     If ActiveDelay = Data.txbDelay2.Text Then Choices(1, 0) = False
                     If ActiveDelay = Data.txbDelay3.Text Then Choices(2, 0) = False
@@ -80,7 +80,7 @@ Public Class Task
                     Delay()
                 End If
             ElseIf Trial = 2 Then
-                If sender.Text = "8 s ahora" Or sender.Text = "24 s ahora" Then
+                If sender.Text = "8 segundos de video ahora" Or sender.Text = "24 segundos de video ahora" Then
                     If ActiveDelay = Data.txbDelay1.Text Then Choices(0, 1) = False
                     If ActiveDelay = Data.txbDelay2.Text Then Choices(1, 1) = False
                     If ActiveDelay = Data.txbDelay3.Text Then Choices(2, 1) = False
@@ -101,7 +101,7 @@ Public Class Task
                     Delay()
                 End If
             ElseIf Trial = 3 Then
-                If sender.Text = "4 s ahora" Or sender.Text = "12 s ahora" Or sender.Text = "20 s ahora" Or sender.Text = "28 s ahora" Then
+                If sender.Text = "4 segundos de video ahora" Or sender.Text = "12 segundos de video ahora" Or sender.Text = "20 segundos de video ahora" Or sender.Text = "28 segundos de video ahora" Then
                     If ActiveDelay = Data.txbDelay1.Text Then Choices(0, 2) = False
                     If ActiveDelay = Data.txbDelay2.Text Then Choices(1, 2) = False
                     If ActiveDelay = Data.txbDelay3.Text Then Choices(2, 2) = False
@@ -122,7 +122,7 @@ Public Class Task
                     Delay()
                 End If
             ElseIf Trial = 4 Then
-                If sender.Text = "16 s ahora" Then
+                If sender.Text = "16 segundos de video ahora" Then
                     If ActiveDelay = Data.txbDelay1.Text Then Choices(0, 3) = False
                     If ActiveDelay = Data.txbDelay2.Text Then Choices(1, 3) = False
                     If ActiveDelay = Data.txbDelay3.Text Then Choices(2, 3) = False
