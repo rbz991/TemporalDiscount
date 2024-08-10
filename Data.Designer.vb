@@ -302,7 +302,7 @@ Partial Class Data
         Me.txbEnsayoDur.Name = "txbEnsayoDur"
         Me.txbEnsayoDur.Size = New System.Drawing.Size(196, 52)
         Me.txbEnsayoDur.TabIndex = 26
-        Me.txbEnsayoDur.Text = "120000"
+        Me.txbEnsayoDur.Text = "95000"
         '
         'Data
         '

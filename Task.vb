@@ -173,12 +173,12 @@ Public Class Task
         ElseIf ForcedTrial = 1 Then
             ForcedTrial += 1
             Reinforce(Ref)
-            tmrRestart.Interval = Data.txbEnsayoDur.Text - 16000 'El ref de ensayo forzado dura 16s
+            tmrRestart.Interval = Data.txbEnsayoDur.Text  'El ref de ensayo forzado dura 16s
             tmrRestart.Enabled = True
         ElseIf ForcedTrial = 2 Then
             ForcedTrial += 1
             Reinforce(Ref)
-            tmrRestart.Interval = Data.txbEnsayoDur.Text - 52000 'Espero 20 s y luego vio video por 32s
+            tmrRestart.Interval = Data.txbEnsayoDur.Text - 20000 'Espero 20 s y luego vio video por 32s
             tmrRestart.Enabled = True
         ElseIf ForcedTrial = 3 Then
             If vPhase <> 1 Then
@@ -187,7 +187,7 @@ Public Class Task
                     tmrRestart.Enabled = True
                 ElseIf blnWaited = True Then
                     blnWaited = False
-                    tmrRestart.Interval = (Data.txbEnsayoDur.Text - tmrDelay.Interval - currentRef * 1000)
+                    tmrRestart.Interval = (Data.txbEnsayoDur.Text - tmrDelay.Interval) '- currentRef * 1000
                     tmrRestart.Enabled = True
                 End If
             ElseIf vPhase = 1 Then
