@@ -43,11 +43,11 @@ Public Class Task
 
             If sender.Name = "btnIzquierda" Then
                 btnRef.Visible = True
-                blnWaited = False
+                'blnWaited = False
             End If
 
             If sender.Name = "btnDerecha" Then
-                blnWaited = True
+                'blnWaited = True
                 'tmrDelay.Interval = 60000
                 'Delay()
                 ProgressBar1.Maximum = 20000
@@ -180,10 +180,11 @@ Public Class Task
             Reinforce(Ref)
             tmrRestart.Interval = Data.txbEnsayoDur.Text - 20000 'Espero 20 s y luego vio video por 32s
             tmrRestart.Enabled = True
-        ElseIf ForcedTrial = 3 Then
+        ElseIf ForcedTrial > 2 Then
             If vPhase <> 1 Then
                 Reinforce(Ref)
                 If blnWaited = False Then
+                    tmrRestart.Interval = Data.txbEnsayoDur.Text
                     tmrRestart.Enabled = True
                 ElseIf blnWaited = True Then
                     blnWaited = False
@@ -209,7 +210,7 @@ Public Class Task
     End Sub
     Private Sub tmrRestart_Tick(sender As Object, e As EventArgs) Handles tmrRestart.Tick
         tmrRestart.Enabled = False
-        If ForcedTrial = 3 And blnStarting = True Then
+        If ForcedTrial > 2 And blnStarting = True Then
             blnStarting = False
             Trial += 1
         End If
@@ -234,7 +235,7 @@ Public Class Task
             FTrial()
             btnIzquierda.Visible = False
             btnDerecha.Enabled = True
-        ElseIf ForcedTrial = 3 Then
+        ElseIf ForcedTrial > 2 Then
             btnIzquierda.Enabled = True
             btnDerecha.Enabled = True
             btnIzquierda.Visible = True
