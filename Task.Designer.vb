@@ -50,9 +50,9 @@ Partial Class Task
         '
         Me.lblPrefieres.AutoSize = True
         Me.lblPrefieres.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.125!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrefieres.Location = New System.Drawing.Point(16, 14)
+        Me.lblPrefieres.Location = New System.Drawing.Point(14, 11)
         Me.lblPrefieres.Name = "lblPrefieres"
-        Me.lblPrefieres.Size = New System.Drawing.Size(1094, 65)
+        Me.lblPrefieres.Size = New System.Drawing.Size(889, 54)
         Me.lblPrefieres.TabIndex = 0
         Me.lblPrefieres.Text = "Da click para iniciar la toma de decisiones"
         '
@@ -61,9 +61,10 @@ Partial Class Task
         Me.btnIzquierda.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnIzquierda.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnIzquierda.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIzquierda.Location = New System.Drawing.Point(18, 628)
+        Me.btnIzquierda.Location = New System.Drawing.Point(16, 502)
+        Me.btnIzquierda.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnIzquierda.Name = "btnIzquierda"
-        Me.btnIzquierda.Size = New System.Drawing.Size(488, 320)
+        Me.btnIzquierda.Size = New System.Drawing.Size(434, 256)
         Me.btnIzquierda.TabIndex = 1
         Me.btnIzquierda.Text = "."
         Me.btnIzquierda.UseVisualStyleBackColor = False
@@ -74,9 +75,10 @@ Partial Class Task
         Me.btnDerecha.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.btnDerecha.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnDerecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDerecha.Location = New System.Drawing.Point(1788, 628)
+        Me.btnDerecha.Location = New System.Drawing.Point(1589, 502)
+        Me.btnDerecha.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnDerecha.Name = "btnDerecha"
-        Me.btnDerecha.Size = New System.Drawing.Size(488, 320)
+        Me.btnDerecha.Size = New System.Drawing.Size(434, 256)
         Me.btnDerecha.TabIndex = 2
         Me.btnDerecha.Text = "."
         Me.btnDerecha.UseVisualStyleBackColor = False
@@ -90,9 +92,10 @@ Partial Class Task
         Me.btnRef.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnRef.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.btnRef.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRef.Location = New System.Drawing.Point(953, 538)
+        Me.btnRef.Location = New System.Drawing.Point(847, 430)
+        Me.btnRef.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnRef.Name = "btnRef"
-        Me.btnRef.Size = New System.Drawing.Size(450, 308)
+        Me.btnRef.Size = New System.Drawing.Size(400, 246)
         Me.btnRef.TabIndex = 3
         Me.btnRef.Text = "Comenzar"
         Me.btnRef.UseVisualStyleBackColor = False
@@ -103,10 +106,10 @@ Partial Class Task
         'ProgressBar1
         '
         Me.ProgressBar1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ProgressBar1.Location = New System.Drawing.Point(0, 1532)
-        Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.ProgressBar1.Location = New System.Drawing.Point(0, 810)
+        Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(2293, 42)
+        Me.ProgressBar1.Size = New System.Drawing.Size(1710, 34)
         Me.ProgressBar1.TabIndex = 4
         Me.ProgressBar1.Visible = False
         '
@@ -119,9 +122,9 @@ Partial Class Task
         Me.lblEspera.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblEspera.AutoSize = True
         Me.lblEspera.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.125!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEspera.Location = New System.Drawing.Point(909, 180)
+        Me.lblEspera.Location = New System.Drawing.Point(808, 144)
         Me.lblEspera.Name = "lblEspera"
-        Me.lblEspera.Size = New System.Drawing.Size(451, 65)
+        Me.lblEspera.Size = New System.Drawing.Size(369, 54)
         Me.lblEspera.TabIndex = 5
         Me.lblEspera.Text = "Por favor espera"
         Me.lblEspera.Visible = False
@@ -129,9 +132,10 @@ Partial Class Task
         'btnButton
         '
         Me.btnButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnButton.Location = New System.Drawing.Point(348, 572)
+        Me.btnButton.Location = New System.Drawing.Point(309, 458)
+        Me.btnButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnButton.Name = "btnButton"
-        Me.btnButton.Size = New System.Drawing.Size(150, 151)
+        Me.btnButton.Size = New System.Drawing.Size(133, 121)
         Me.btnButton.TabIndex = 15
         Me.btnButton.UseVisualStyleBackColor = True
         Me.btnButton.Visible = False
@@ -147,10 +151,10 @@ Partial Class Task
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(88, 151)
+        Me.Label1.Location = New System.Drawing.Point(78, 121)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(57, 20)
+        Me.Label1.Size = New System.Drawing.Size(48, 16)
         Me.Label1.TabIndex = 16
         Me.Label1.Text = "Label1"
         Me.Label1.Visible = False
@@ -164,10 +168,10 @@ Partial Class Task
         Me.lblFood.BackColor = System.Drawing.Color.Transparent
         Me.lblFood.ForeColor = System.Drawing.Color.Transparent
         Me.lblFood.Image = Global.TemporalDiscount.My.Resources.Resources.ball1
-        Me.lblFood.Location = New System.Drawing.Point(124, -48)
+        Me.lblFood.Location = New System.Drawing.Point(110, -38)
         Me.lblFood.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblFood.Name = "lblFood"
-        Me.lblFood.Size = New System.Drawing.Size(45, 48)
+        Me.lblFood.Size = New System.Drawing.Size(40, 38)
         Me.lblFood.TabIndex = 18
         Me.lblFood.Visible = False
         '
@@ -176,10 +180,10 @@ Partial Class Task
         Me.lblSnake.BackColor = System.Drawing.Color.Transparent
         Me.lblSnake.ForeColor = System.Drawing.Color.Transparent
         Me.lblSnake.Image = Global.TemporalDiscount.My.Resources.Resources.ball1
-        Me.lblSnake.Location = New System.Drawing.Point(75, -48)
+        Me.lblSnake.Location = New System.Drawing.Point(67, -38)
         Me.lblSnake.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblSnake.Name = "lblSnake"
-        Me.lblSnake.Size = New System.Drawing.Size(45, 48)
+        Me.lblSnake.Size = New System.Drawing.Size(40, 38)
         Me.lblSnake.TabIndex = 17
         '
         'tmrForcedDelay
@@ -192,19 +196,20 @@ Partial Class Task
         'AxWindowsMediaPlayer1
         '
         Me.AxWindowsMediaPlayer1.Enabled = True
-        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(11, 9)
+        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(12, 11)
+        Me.AxWindowsMediaPlayer1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
         Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(1376, 968)
+        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(1686, 822)
         Me.AxWindowsMediaPlayer1.TabIndex = 19
         Me.AxWindowsMediaPlayer1.Visible = False
         '
         'Task
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(2293, 1574)
+        Me.ClientSize = New System.Drawing.Size(1710, 844)
         Me.Controls.Add(Me.AxWindowsMediaPlayer1)
         Me.Controls.Add(Me.lblFood)
         Me.Controls.Add(Me.lblSnake)
@@ -218,6 +223,7 @@ Partial Class Task
         Me.Controls.Add(Me.lblPrefieres)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "Task"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
